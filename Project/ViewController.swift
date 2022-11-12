@@ -9,7 +9,7 @@ import UIKit
 import FirebaseAuth
 
 class ViewController: UIViewController {
-
+    var test = 1
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var IDField: UITextField!
     @IBOutlet weak var SegCrtl: UISegmentedControl!
