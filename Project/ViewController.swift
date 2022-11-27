@@ -7,6 +7,8 @@
 
 import UIKit
 import FirebaseAuth
+import Foundation
+import AVFoundation
 
 class ViewController: UIViewController {
     var test = 1
