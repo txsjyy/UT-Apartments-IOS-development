@@ -7,9 +7,10 @@
 
 import UIKit
 import FirebaseAuth
+import Firebase
 
-class ViewController: UIViewController {
-    
+class LoginViewController: UIViewController {
+
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var IDField: UITextField!
     @IBOutlet weak var SegCrtl: UISegmentedControl!
@@ -52,8 +53,11 @@ class ViewController: UIViewController {
                 if let error = error as NSError? {
                     self.statusLabel.text = "\(error.localizedDescription)"
                 } else {
-                    self.statusLabel.text = "Sign In success"
-                    self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                    Service.uploadToDatabase(email: self.IDField.text!, name: "yjy") {
+                        self.statusLabel.text = "Sign In success"
+                        self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                    }
+                    
                 }
             }
 //      create new user and login
