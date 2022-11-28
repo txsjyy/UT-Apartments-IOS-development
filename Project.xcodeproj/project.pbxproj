@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A1D6FE0293545C800010301 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1D6FDF293545C800010301 /* DetailViewController.swift */; };
+		0A1D6FE22935466400010301 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1D6FE12935466400010301 /* ProfileViewController.swift */; };
 		B2093B1D291B54A2002535DB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2093B1C291B54A2002535DB /* MainViewController.swift */; };
 		B228F15C29186D8B00548848 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B228F15B29186D8B00548848 /* AppDelegate.swift */; };
 		B228F15E29186D8B00548848 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B228F15D29186D8B00548848 /* SceneDelegate.swift */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A1D6FDF293545C800010301 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		0A1D6FE12935466400010301 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		B2093B1C291B54A2002535DB /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B228F15829186D8B00548848 /* Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B228F15B29186D8B00548848 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +72,8 @@
 				B228F15D29186D8B00548848 /* SceneDelegate.swift */,
 				B228F15F29186D8B00548848 /* ViewController.swift */,
 				B228F16129186D8B00548848 /* Main.storyboard */,
+				0A1D6FE12935466400010301 /* ProfileViewController.swift */,
+				0A1D6FDF293545C800010301 /* DetailViewController.swift */,
 				B2093B1C291B54A2002535DB /* MainViewController.swift */,
 				B228F16729186D8B00548848 /* Assets.xcassets */,
 				B228F16929186D8B00548848 /* LaunchScreen.storyboard */,
@@ -159,6 +165,8 @@
 				B228F16029186D8B00548848 /* ViewController.swift in Sources */,
 				B228F15C29186D8B00548848 /* AppDelegate.swift in Sources */,
 				B228F15E29186D8B00548848 /* SceneDelegate.swift in Sources */,
+				0A1D6FE0293545C800010301 /* DetailViewController.swift in Sources */,
+				0A1D6FE22935466400010301 /* ProfileViewController.swift in Sources */,
 				B228F16629186D8B00548848 /* Project.xcdatamodeld in Sources */,
 				B2093B1D291B54A2002535DB /* MainViewController.swift in Sources */,
 			);
