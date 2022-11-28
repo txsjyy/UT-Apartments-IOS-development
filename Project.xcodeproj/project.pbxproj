@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A1D6FE4293553D700010301 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1D6FE3293553D700010301 /* ProfileViewController.swift */; };
 		9CFA2C72292FECAC00966B0B /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA2C71292FECAC00966B0B /* MyCollectionViewCell.swift */; };
 		9CFA2C752934306C00966B0B /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA2C732934306C00966B0B /* ItemCollectionViewCell.swift */; };
 		9CFA2C762934306C00966B0B /* ItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CFA2C742934306C00966B0B /* ItemCollectionViewCell.xib */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A1D6FE3293553D700010301 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		9CFA2C71292FECAC00966B0B /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
 		9CFA2C732934306C00966B0B /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		9CFA2C742934306C00966B0B /* ItemCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				B228F15D29186D8B00548848 /* SceneDelegate.swift */,
 				B228F15F29186D8B00548848 /* ViewController.swift */,
 				B228F16129186D8B00548848 /* Main.storyboard */,
+				0A1D6FE3293553D700010301 /* ProfileViewController.swift */,
 				B2093B1C291B54A2002535DB /* MainViewController.swift */,
 				9CFA2C71292FECAC00966B0B /* MyCollectionViewCell.swift */,
 				B228F16729186D8B00548848 /* Assets.xcassets */,
@@ -175,6 +178,7 @@
 				B228F15E29186D8B00548848 /* SceneDelegate.swift in Sources */,
 				B228F16629186D8B00548848 /* Project.xcdatamodeld in Sources */,
 				B2093B1D291B54A2002535DB /* MainViewController.swift in Sources */,
+				0A1D6FE4293553D700010301 /* ProfileViewController.swift in Sources */,
 				9CFA2C7C2934F2E800966B0B /* APTViewController.swift in Sources */,
 				9CFA2C752934306C00966B0B /* ItemCollectionViewCell.swift in Sources */,
 			);
