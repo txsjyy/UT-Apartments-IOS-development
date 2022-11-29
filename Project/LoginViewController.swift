@@ -18,13 +18,18 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var confirmField: UITextField!
     @IBOutlet weak var confirmLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var nameField: UITextField!
+    @IBOutlet weak var forgotButton: UIButton!
     
+    @IBOutlet weak var userNameLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         passwordField.isSecureTextEntry = true
         confirmField.isHidden = true
         confirmLabel.isHidden = true
+        userNameLabel.isHidden = true
+        nameField.isHidden = true
     }
 
     @IBAction func SegSwitch(_ sender: Any) {
@@ -34,11 +39,18 @@ class LoginViewController: UIViewController {
             confirmField.isHidden = true
             confirmLabel.isHidden = true
             passwordField.isSecureTextEntry = true
+            forgotButton.isHidden = false
+            userNameLabel.isHidden = true
+            nameField.isHidden = true
+            
         case 1 :
             SignButton.setTitle("Sign Up", for: UIControl.State.normal)
             confirmField.isHidden = false
             confirmLabel.isHidden = false
             passwordField.isSecureTextEntry = false
+            forgotButton.isHidden = false
+            userNameLabel.isHidden = false
+            nameField.isHidden = false
         default:
             SignButton.titleLabel!.text = "Sign In"
             confirmField.isHidden = true
@@ -53,11 +65,8 @@ class LoginViewController: UIViewController {
                 if let error = error as NSError? {
                     self.statusLabel.text = "\(error.localizedDescription)"
                 } else {
-                    Service.uploadToDatabase(email: self.IDField.text!, name: "yjy") {
                         self.statusLabel.text = "Sign In success"
                         self.performSegue(withIdentifier: "loginSegue", sender: nil)
-                    }
-                    
                 }
             }
 //      create new user and login
@@ -68,8 +77,10 @@ class LoginViewController: UIViewController {
                     if let error = error as NSError? {
                         self.statusLabel.text = "\(error.localizedDescription)"
                     } else {
-                        self.statusLabel.text = "Sign In success"
-                        self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                        Service.uploadToDatabase(email: self.IDField.text!, name: self.nameField.text!) {
+                            self.statusLabel.text = "Sign In success"
+                            self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                        }
                     }
                 }
             }else {
@@ -77,6 +88,17 @@ class LoginViewController: UIViewController {
             }
         }
     }
-    
+    @IBAction func forgotPassButton_Tapped(_ sender: Any) {
+        let auth = Auth.auth()
+        auth.sendPasswordReset(withEmail: IDField.text!) { (error) in
+            if let error = error {
+                let alert = Service.createAlertController(title: "Error", message: error.localizedDescription)
+                self.present(alert, animated: true, completion: nil)
+                return
+            }
+            let alert = Service.createAlertController(title: "Hurray", message: "A password reset email has been sent!")
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
 }
 
