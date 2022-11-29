@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9CC7753129369F5B00A69856 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CC7753029369F5B00A69856 /* MapKit.framework */; };
 		9CFA2C72292FECAC00966B0B /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA2C71292FECAC00966B0B /* MyCollectionViewCell.swift */; };
 		9CFA2C752934306C00966B0B /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA2C732934306C00966B0B /* ItemCollectionViewCell.swift */; };
 		9CFA2C762934306C00966B0B /* ItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CFA2C742934306C00966B0B /* ItemCollectionViewCell.xib */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9CC7753029369F5B00A69856 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		9CFA2C71292FECAC00966B0B /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
 		9CFA2C732934306C00966B0B /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		9CFA2C742934306C00966B0B /* ItemCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -52,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CC7753129369F5B00A69856 /* MapKit.framework in Frameworks */,
 				B25EC387293550A200218938 /* FirebaseDatabase in Frameworks */,
 				B2B6B98D291A197D00450F89 /* FirebaseAuth in Frameworks */,
 				B25EC389293550C500218938 /* FirebaseStorage in Frameworks */,
@@ -104,6 +107,7 @@
 		B25EC385293550A200218938 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9CC7753029369F5B00A69856 /* MapKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
