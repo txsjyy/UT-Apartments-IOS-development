@@ -48,7 +48,7 @@ class LoginViewController: UIViewController {
             confirmField.isHidden = false
             confirmLabel.isHidden = false
             passwordField.isSecureTextEntry = false
-            forgotButton.isHidden = false
+            forgotButton.isHidden = true
             userNameLabel.isHidden = false
             nameField.isHidden = false
         default:
