@@ -6,24 +6,30 @@
 //
 
 import UIKit
+import MapKit
 
-class APTViewController: UIViewController {
-
+class APTViewController: UIViewController, MKMapViewDelegate {
+    @IBOutlet weak var name_label: UILabel!
+    var delegate1: UIViewController!
+    @IBOutlet weak var apt_mapView: MKMapView!
+    @IBOutlet weak var apt_imageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        name_label.text = apt_list[chosenidex]
+        apt_imageView.image = UIImage(named: image_list[chosenidex])
+        apt_mapView.delegate = self
+        apt_mapView.showsUserLocation = false
+        
+        let center = CLLocationCoordinate2D(latitude: latitude_list[chosenidex], longitude: longitude_list[chosenidex])
+        let region = MKCoordinateRegion(center: center, latitudinalMeters: 2000, longitudinalMeters: 2000)
+        
+        apt_mapView.setRegion(region, animated: true)
+        apt_mapView.mapType = .hybrid
 
-        // Do any additional setup after loading the view.
+        
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+   
 }
