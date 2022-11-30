@@ -16,16 +16,16 @@ class APTViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        name_label.text = apt_list[chosenidex]
-        apt_imageView.image = UIImage(named: image_list[chosenidex])
+        name_label.text = apartment_list[chosenidex].apt_name
+        apt_imageView.image = UIImage(named: apartment_list[chosenidex].apt_image)
         apt_mapView.delegate = self
         apt_mapView.showsUserLocation = false
         
-        let center = CLLocationCoordinate2D(latitude: latitude_list[chosenidex], longitude: longitude_list[chosenidex])
+        let center = CLLocationCoordinate2D(latitude: apartment_list[chosenidex].apt_latitude, longitude: apartment_list[chosenidex].apt_longitude)
         let region = MKCoordinateRegion(center: center, latitudinalMeters: 200, longitudinalMeters: 200)
         
         apt_mapView.setRegion(region, animated: true)
-        apt_mapView.mapType = .hybrid
+        apt_mapView.mapType = .standard
 
         
     }
@@ -33,3 +33,4 @@ class APTViewController: UIViewController, MKMapViewDelegate {
 
    
 }
+
