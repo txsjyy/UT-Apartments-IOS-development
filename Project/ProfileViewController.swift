@@ -8,6 +8,7 @@
 import UIKit
 import AVFoundation
 import Firebase
+import FirebaseStorage
 
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -37,6 +38,24 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let chosenImage = info[.originalImage] as! UIImage
         iconPicture.image = chosenImage
+        guard let imageData = chosenImage.pngData() else {
+            return
+        }
+        let storage = Storage.storage().reference()
+        let ref = storage.child("images/testfile.png")
+        ref.putData(imageData) { _,error in
+            guard error == nil else {
+                print("Failed to upload")
+                return
+            }
+            ref.downloadURL(){ url,error in
+                guard let url = url, error == nil else {
+                    return
+                }
+                let urlString = url.absoluteString
+                print(urlString)
+            }
+        }
         viewWillAppear(false)
         dismiss(animated: true)
     }
