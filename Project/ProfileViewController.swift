@@ -7,9 +7,11 @@
 
 import UIKit
 import AVFoundation
+import Firebase
 
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var iconPicture: UIImageView!
     let picker = UIImagePickerController()
     //let myImage = UIImage()
@@ -17,10 +19,15 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         picker.delegate = self
+        let defaults = UserDefaults.standard
         
+        Service.getUserInfo(onSuccess: {
+            self.userNameLabel.text = " \(defaults.string(forKey: "userNameKey")!)"
+        }) { (error) in
+            self.present(Service.createAlertController(title: "Error", message: error!.localizedDescription), animated: true, completion: nil)
+        }
     }
     
-
     @IBAction func librarySelected(_ sender: Any) {
         picker.allowsEditing = false
         picker.sourceType = .photoLibrary

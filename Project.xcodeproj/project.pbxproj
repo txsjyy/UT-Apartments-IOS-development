@@ -26,7 +26,6 @@
 		B25EC387293550A200218938 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = B25EC386293550A200218938 /* FirebaseDatabase */; };
 		B25EC389293550C500218938 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = B25EC388293550C500218938 /* FirebaseStorage */; };
 		B25EC38B29355CE300218938 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25EC38A29355CE300218938 /* Service.swift */; };
-		B25EC38D2935701400218938 /* profileSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25EC38C2935701400218938 /* profileSettingViewController.swift */; };
 		B2B6B98A291A156600450F89 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B2B6B989291A156600450F89 /* GoogleService-Info.plist */; };
 		B2B6B98D291A197D00450F89 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B2B6B98C291A197D00450F89 /* FirebaseAuth */; };
 /* End PBXBuildFile section */
@@ -51,7 +50,6 @@
 		B228F16A29186D8B00548848 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B228F16C29186D8B00548848 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B25EC38A29355CE300218938 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
-		B25EC38C2935701400218938 /* profileSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileSettingViewController.swift; sourceTree = "<group>"; };
 		B2B6B989291A156600450F89 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,7 +95,6 @@
 				B219790E2937ECF8000BEBC8 /* FavouriteTableViewController.swift */,
 				B21979102937ED91000BEBC8 /* FavouriteTableViewCell.swift */,
 				0A27D8F6293700C8009E0054 /* ProfileViewController.swift */,
-				B25EC38C2935701400218938 /* profileSettingViewController.swift */,
 				B2093B1C291B54A2002535DB /* MainViewController.swift */,
 				9CFA2C7B2934F2E800966B0B /* APTViewController.swift */,
 				9CFA2C732934306C00966B0B /* ItemCollectionViewCell.swift */,
@@ -214,7 +211,6 @@
 				9CFA2C752934306C00966B0B /* ItemCollectionViewCell.swift in Sources */,
 				B21979112937ED91000BEBC8 /* FavouriteTableViewCell.swift in Sources */,
 				B219790B2937E63B000BEBC8 /* EnterPageViewController.swift in Sources */,
-				B25EC38D2935701400218938 /* profileSettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
