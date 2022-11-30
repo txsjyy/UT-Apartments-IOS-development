@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 
 class Service {
     static func uploadToDatabase(email: String, name: String, onSuccess: @escaping () -> Void) {
@@ -52,5 +53,17 @@ class Service {
         
         return alert
     }
+//    static func uploadImage(image: UIImage,onSuccess: @escaping () -> Void) {
+//        // Create a storage reference from our storage service
+//        let storageRef = Storage.storage().reference().child("myfiles/myfile")
+//
+//        storageRef.
+//          // When the image has successfully uploaded, we get it's download URL
+//            let downloadURL = snapshot.metadata?.downloadURL()?.absoluteString
+//          // Write the download URL to the Realtime Database
+//            let uid = Auth.auth().currentUser?.uid
+//            let dbRef = Database.database().reference().child("users").child(uid!).setValue(["imageURL":downloadURL])
+//        }
+//
 
 }

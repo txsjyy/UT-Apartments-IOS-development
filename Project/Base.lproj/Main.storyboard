@@ -11,10 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Enter Page View Controller-->
         <scene sceneID="Qxz-fX-GTf">
             <objects>
-                <viewController id="pc2-1X-jhh" sceneMemberID="viewController">
+                <viewController id="pc2-1X-jhh" customClass="EnterPageViewController" customModule="Project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="upy-6o-xR3">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -120,7 +120,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eiP-oL-Lsr">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eiP-oL-Lsr" colorLabel="IBBuiltInLabel-Red">
                                 <rect key="frame" x="73" y="465" width="284" height="31"/>
                                 <color key="backgroundColor" systemColor="systemMintColor"/>
                                 <constraints>
@@ -215,38 +215,68 @@
             </objects>
             <point key="canvasLocation" x="906.97674418604652" y="77.253218884120173"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Test Navigation View Controller-->
         <scene sceneID="LzP-dM-Wlr">
             <objects>
-                <navigationController id="4KY-ad-0mV" sceneMemberID="viewController">
+                <navigationController id="4KY-ad-0mV" customClass="FPRTestNavigationViewController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="lD9-FT-auF"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Qvp-kP-hxM">
                         <rect key="frame" x="0.0" y="59" width="430" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="TiM-jM-Jfk" kind="relationship" relationship="rootViewController" id="2Dm-xh-H7P"/>
+                        <segue destination="DsD-tk-a3C" kind="relationship" relationship="rootViewController" id="Pi2-FF-bqo"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sYg-Gc-cLw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1779" y="-583"/>
         </scene>
-        <!--My Favourite Apartment-->
-        <scene sceneID="Zdv-sz-HkG">
+        <!--Favourite Apartments-->
+        <scene sceneID="goV-gw-TaU">
             <objects>
-                <viewController id="TiM-jM-Jfk" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="1lS-xd-zaM">
+                <tableViewController id="DsD-tk-a3C" customClass="FavouriteTableViewController" customModule="Project" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Stg-bX-C1I">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="400-mU-398"/>
-                        <color key="backgroundColor" red="0.91976243257522583" green="0.85185867557106498" blue="0.72053911604771104" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="My Favourite Apartment" id="O84-tS-41d"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OJl-ME-uQP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavouriteCell" rowHeight="150" id="oRh-T1-EeJ" customClass="FavouriteTableViewCell" customModule="Project" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="50" width="430" height="150"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oRh-T1-EeJ" id="GfY-aH-tTs">
+                                    <rect key="frame" x="0.0" y="0.0" width="430" height="150"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NMw-Kn-qKw">
+                                            <rect key="frame" x="20" y="0.0" width="173" height="150"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Kh-Az-S4d">
+                                            <rect key="frame" x="277" y="26" width="42" height="99"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="favouriteImage" destination="NMw-Kn-qKw" id="9lt-a2-4ZV"/>
+                                    <outlet property="favouriteLabel" destination="6Kh-Az-S4d" id="qk7-2g-l5h"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="DsD-tk-a3C" id="ZES-Xp-FEq"/>
+                            <outlet property="delegate" destination="DsD-tk-a3C" id="EVR-tI-qag"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Favourite Apartments" id="mkV-DN-sdz"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BQU-uI-9fa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2822" y="-583"/>
+            <point key="canvasLocation" x="2677.6744186046512" y="-583.26180257510737"/>
         </scene>
         <!--Rate My Apartment-->
         <scene sceneID="tDE-qh-Bf7">
@@ -273,8 +303,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
+                                        <size key="customSize" width="128" height="128"/>
                                         <connections>
-                                            <segue destination="SYB-TF-hlr" kind="show" identifier="apt_segue" id="PEw-CU-NYo"/>
+                                            <segue destination="SYB-TF-hlr" kind="show" identifier="apt_segue" id="bKE-p0-jdc"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -591,6 +622,9 @@
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

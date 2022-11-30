@@ -66,7 +66,7 @@ class MainViewController: UIViewController,UICollectionViewDelegate, UICollectio
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCollectionViewCell", for: indexPath) as! ItemCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath) as! ItemCollectionViewCell
         cell.imageView.image = UIImage(named: image_list[indexPath.row])
         cell.label.text = apt_list[indexPath.row]
         return cell

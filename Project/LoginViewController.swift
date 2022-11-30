@@ -25,6 +25,8 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        SignButton.layer.cornerRadius = 15
+        SignButton.clipsToBounds = true
         passwordField.isSecureTextEntry = true
         confirmField.isHidden = true
         confirmLabel.isHidden = true
