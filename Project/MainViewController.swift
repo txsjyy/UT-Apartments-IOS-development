@@ -131,7 +131,7 @@ class MainViewController: UIViewController,UICollectionViewDelegate, UICollectio
         chosenidex = indexPath.row
         self.performSegue(withIdentifier: "apt_segue", sender: nil)
     }
-    
+   
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()

@@ -28,7 +28,11 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             self.present(Service.createAlertController(title: "Error", message: error!.localizedDescription), animated: true, completion: nil)
         }
     }
-    
+//
+//    override var traitCollection: UITraitCollection {
+//      UITraitCollection(traitsFrom: [super.traitCollection, UITraitCollection(userInterfaceStyle: .dark)])
+//    }
+//
     @IBAction func librarySelected(_ sender: Any) {
         picker.allowsEditing = false
         picker.sourceType = .photoLibrary

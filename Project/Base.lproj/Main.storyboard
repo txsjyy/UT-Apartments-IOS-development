@@ -312,7 +312,7 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="a0z-cL-GzO"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Rate My Apartment" id="qcM-4e-Or8">
                         <barButtonItem key="backBarButtonItem" title="back" id="mas-2d-jCV"/>
