@@ -22,7 +22,7 @@ class APTViewController: UIViewController, MKMapViewDelegate {
         apt_mapView.showsUserLocation = false
         
         let center = CLLocationCoordinate2D(latitude: latitude_list[chosenidex], longitude: longitude_list[chosenidex])
-        let region = MKCoordinateRegion(center: center, latitudinalMeters: 2000, longitudinalMeters: 2000)
+        let region = MKCoordinateRegion(center: center, latitudinalMeters: 200, longitudinalMeters: 200)
         
         apt_mapView.setRegion(region, animated: true)
         apt_mapView.mapType = .hybrid
