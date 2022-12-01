@@ -555,6 +555,9 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WWY-Ec-6fU">
                                 <rect key="frame" x="276" y="536" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="darkModeSwitch:" destination="Cgu-V5-rRg" eventType="valueChanged" id="GHj-gm-ewg"/>
+                                </connections>
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EXw-r8-JgJ">
                                 <rect key="frame" x="274" y="673" width="49" height="31"/>
@@ -598,6 +601,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Profile and Setting" id="QoD-8C-Mci"/>
                     <connections>
+                        <outlet property="darkMode" destination="WWY-Ec-6fU" id="499-PV-CSo"/>
                         <outlet property="iconPicture" destination="LqL-Ni-wEG" id="cbR-Ka-cgu"/>
                         <outlet property="userNameLabel" destination="LA9-VA-q8g" id="AgB-FE-ibQ"/>
                     </connections>

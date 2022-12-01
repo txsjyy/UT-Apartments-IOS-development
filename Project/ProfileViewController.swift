@@ -27,6 +27,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         }) { (error) in
             self.present(Service.createAlertController(title: "Error", message: error!.localizedDescription), animated: true, completion: nil)
         }
+        
+        darkMode.setOn(false, animated: false)
+        darkMode.isOn = UserDefaults.standard.bool(forKey: "Switch")
     }
 //
 //    override var traitCollection: UITraitCollection {
@@ -37,6 +40,21 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         picker.allowsEditing = false
         picker.sourceType = .photoLibrary
         present(picker, animated: true)
+    }
+    
+    @IBOutlet weak var darkMode: UISwitch!
+    
+    @IBAction func darkModeSwitch(_ sender: UISwitch) {
+        UserDefaults.standard.set(sender.isOn, forKey: "Switch")
+        if #available(iOS 15.0, *){
+            let appDelegate = UIApplication.shared.windows.first
+            if sender.isOn{
+                appDelegate?.overrideUserInterfaceStyle = .dark
+                return
+            }
+            appDelegate?.overrideUserInterfaceStyle = .light
+            return
+        }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
