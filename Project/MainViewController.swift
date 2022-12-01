@@ -45,10 +45,13 @@ let pointe = Apartment(apt_name: "Pointe", apt_image: "pointe", apt_latitude: 30
 
 let standard = Apartment(apt_name: "Standard", apt_image: "standard", apt_latitude: 30.28703, apt_longitude: -97.74579, apt_price: "$905 - $1,810")
 
+let axis = Apartment(apt_name: "Axis West", apt_image: "axis", apt_latitude: 30.29025, apt_longitude: -97.75044, apt_price: "$940 - $1,442")
 
+let villas = Apartment(apt_name: "Villas on Rio", apt_image: "villas", apt_latitude: 30.28471, apt_longitude: -97.74463, apt_price: "$809 - $1,749")
 
+let callaway = Apartment(apt_name: "Callaway House", apt_image: "callaway", apt_latitude: 30.28480, apt_longitude: -97.74342, apt_price: "$1,445 - $2,445")
 
-public var apartment_list: [Apartment] = [signature1909, torre, rio21, lark, ion, west26, skyloft, moontower, inspire, crest, pointe, standard]
+public var apartment_list: [Apartment] = [signature1909, torre, rio21, lark, ion, west26, skyloft, moontower, inspire, crest, pointe, standard, axis, villas, callaway]
 
 
 //public var apt_list:[String] = ["Signature 1909", "Torre", "21 Rio", "Lark", "ion", "26 West", "Skyloft", "Moontower", "Inspire", "Crest at Pearl", "Pointe", "the Standard"]

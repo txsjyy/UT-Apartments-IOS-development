@@ -30,11 +30,19 @@ class APTViewController: UIViewController, MKMapViewDelegate {
         apt_mapView.delegate = self
         apt_mapView.showsUserLocation = false
         
-        let center = CLLocationCoordinate2D(latitude: apartment_list[chosenidex].apt_latitude, longitude: apartment_list[chosenidex].apt_longitude)
-        let region = MKCoordinateRegion(center: center, latitudinalMeters: 200, longitudinalMeters: 200)
+        
+        let annontation = MKPointAnnotation()
+        annontation.coordinate = CLLocationCoordinate2D(latitude: apartment_list[chosenidex].apt_latitude, longitude: apartment_list[chosenidex].apt_longitude)
+        
+        
+        annontation.title = apartment_list[chosenidex].apt_name
+        
+        let region = MKCoordinateRegion(center: annontation.coordinate, latitudinalMeters: 200, longitudinalMeters: 200)
+        
+        apt_mapView.addAnnotation(annontation)
         
         apt_mapView.setRegion(region, animated: true)
-        apt_mapView.mapType = .standard
+        apt_mapView.mapType = .hybrid
         
         
         price_label.text = apartment_list[chosenidex].apt_price
