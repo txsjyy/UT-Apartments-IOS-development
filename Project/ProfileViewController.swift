@@ -20,10 +20,14 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         picker.delegate = self
+        let storage = Storage.storage()
         let defaults = UserDefaults.standard
         
         Service.getUserInfo(onSuccess: {
             self.userNameLabel.text = " \(defaults.string(forKey: "userNameKey")!)"
+            if defaults.string(forKey: "userProfileImageKey") != "none" {
+                            let storageRef = storage.reference(forURL: defaults.string(forKey: "userProfileImageKey")!)
+                        }
         }) { (error) in
             self.present(Service.createAlertController(title: "Error", message: error!.localizedDescription), animated: true, completion: nil)
         }
@@ -75,7 +79,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                     return
                 }
                 let urlString = url.absoluteString
-                print(urlString)
+                let ref = Database.database().reference()
+                let uid = Auth.auth().currentUser?.uid
+                
+                ref.child("users").child(uid!).child("profileImage").setValue(urlString)
             }
         }
         viewWillAppear(false)

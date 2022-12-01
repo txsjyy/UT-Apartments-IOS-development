@@ -11,13 +11,13 @@ import FirebaseStorage
 
 class Service {
     static func uploadToDatabase(email: String, name: String, onSuccess: @escaping () -> Void) {
-        let ref = Database.database().reference()
-        let uid = Auth.auth().currentUser?.uid
+            let ref = Database.database().reference()
+            let uid = Auth.auth().currentUser?.uid
+            
+            ref.child("users").child(uid!).setValue(["email" : email, "name" : name,"profileImage": "none","font":"none","sentence": "none"])
+            onSuccess()
+        }
         
-        ref.child("users").child(uid!).setValue(["email" : email, "name" : name])
-        onSuccess()
-    }
-    
     static func getUserInfo(onSuccess: @escaping () -> Void, onError: @escaping (_ error: Error?) -> Void) {
         let ref = Database.database().reference()
         let defaults = UserDefaults.standard
@@ -31,9 +31,15 @@ class Service {
             if let dictionary = snapshot.value as? [String : Any] {
                 let email = dictionary["email"] as! String
                 let name = dictionary["name"] as! String
+                let profileImage = dictionary["profileImage"] as! String
+                let font = dictionary["font"] as! String
+                let sentence = dictionary["sentence"] as! String
                 
                 defaults.set(email, forKey: "userEmailKey")
                 defaults.set(name, forKey: "userNameKey")
+                defaults.set(profileImage, forKey: "userProfileImageKey")
+                defaults.set(font, forKey: "userFontKey")
+                defaults.set(sentence, forKey: "userSentenceKey")
                 
                 onSuccess()
             }
