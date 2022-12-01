@@ -65,7 +65,7 @@ class EnterPageViewController: UIViewController {
                 }
             )
             
-            self.flagImage.alpha = 1.0
+            
             UIView.animate (
                 withDuration: 2.0,
                 animations: {
