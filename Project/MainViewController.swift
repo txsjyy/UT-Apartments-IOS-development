@@ -104,8 +104,30 @@ class MainViewController: UIViewController,UICollectionViewDelegate, UICollectio
         collectionView.dataSource = self
         let nib = UINib(nibName: "ItemCollectionViewCell", bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: "ItemCollectionViewCell")
+        view.addSubview(collectionView)
+        let gesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPressGesture(_:)))
+        collectionView?.addGestureRecognizer(gesture)
     }
     
+    @objc func handleLongPressGesture(_ gesture: UILongPressGestureRecognizer) {
+        guard let collectionView = collectionView else {
+            return
+        }
+        
+        switch gesture.state {
+        case .began:
+            guard let targetIndexPath = collectionView.indexPathForItem(at: gesture.location(in: collectionView)) else {
+                return
+            }
+            collectionView.beginInteractiveMovementForItem(at: targetIndexPath)
+        case .changed:
+            collectionView.updateInteractiveMovementTargetPosition(gesture.location(in: collectionView))
+        case .ended:
+            collectionView.endInteractiveMovement()
+        default:
+            collectionView.cancelInteractiveMovement()
+        }
+    }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCollectionViewCell", for: indexPath) as! ItemCollectionViewCell
         cell.imageView.image = UIImage(named: apartment_list[indexPath.row].apt_image)
@@ -155,4 +177,12 @@ class MainViewController: UIViewController,UICollectionViewDelegate, UICollectio
     @IBAction func addNewApartment(_ sender: Any) {
     }
     
+    func collectionView(_ collectionView: UIViewController, canMoveItemAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let item = apartment_list.remove(at: sourceIndexPath.row)
+        apartment_list.insert(item, at: destinationIndexPath.row)
+    }
 }
