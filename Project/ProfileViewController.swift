@@ -10,10 +10,48 @@ import AVFoundation
 import Firebase
 import FirebaseStorage
 
+extension UIView {
+    func changeFontSize(){
+        if let v = self as? UIButton {
+            let fontSize = v.titleLabel?.font.pointSize
+            v.titleLabel?.font = UIFont.systemFont(ofSize: fontSize!, weight: UIFont.Weight.bold)
+        } else if let v = self as? UILabel {
+            let fontSize = v.font.pointSize
+            v.font = UIFont.systemFont(ofSize: fontSize, weight: UIFont.Weight.bold)
+        } else if let v = self as? UITextField {
+            let fontSize = v.font!.pointSize
+            v.font = UIFont.systemFont(ofSize: fontSize, weight: UIFont.Weight.bold)
+        } else {
+            for v in subviews {
+                v.changeFontSize()
+            }
+        }
+    }
+    
+    func resetFontSize(){
+        if let v = self as? UIButton {
+            let fontSize = v.titleLabel?.font.pointSize
+            v.titleLabel?.font = UIFont.systemFont(ofSize: fontSize!, weight: UIFont.Weight.regular)
+        } else if let v = self as? UILabel {
+            let fontSize = v.font.pointSize
+            v.font = UIFont.systemFont(ofSize: fontSize, weight: UIFont.Weight.regular)
+        } else if let v = self as? UITextField {
+            let fontSize = v.font!.pointSize
+            v.font = UIFont.systemFont(ofSize: fontSize, weight: UIFont.Weight.regular)
+        } else {
+            for v in subviews {
+                v.resetFontSize()
+            }
+        }
+    }
+}
+
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var musicButton: UIButton!
     var player: AVAudioPlayer?
+    
+
     
     @IBAction func playMusic(_ sender: Any) {
         if let player = player, player.isPlaying{
@@ -45,6 +83,16 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
     }
     
+    @IBOutlet weak var fontButton: UISwitch!
+    @IBAction func fontButton(_ sender: UISwitch) {
+        if sender.isOn{
+            UIApplication.shared.windows.first?.changeFontSize()
+            return
+        }
+        UIApplication.shared.windows.first?.resetFontSize()
+        return
+    }
+    
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var iconPicture: UIImageView!
     let picker = UIImagePickerController()
@@ -66,7 +114,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
         
         darkMode.setOn(false, animated: false)
+        fontButton.setOn(false, animated: false)
        // darkMode.isOn = UserDefaults.standard.bool(forKey: "Switch")
+        
     }
 //
 //    override var traitCollection: UITraitCollection {
@@ -82,7 +132,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var darkMode: UISwitch!
     
     @IBAction func darkModeSwitch(_ sender: UISwitch) {
-        UserDefaults.standard.set(sender.isOn, forKey: "Switch")
+        //UserDefaults.standard.set(sender.isOn, forKey: "Switch")
         if #available(iOS 15.0, *){
             let appDelegate = UIApplication.shared.windows.first
             if sender.isOn{

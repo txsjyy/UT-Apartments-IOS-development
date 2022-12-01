@@ -588,6 +588,9 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EXw-r8-JgJ">
                                 <rect key="frame" x="274" y="673" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="fontButton:" destination="Cgu-V5-rRg" eventType="valueChanged" id="3EI-4L-NMr"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XVM-CY-7he">
                                 <rect key="frame" x="61" y="277" width="235" height="36"/>
@@ -633,6 +636,7 @@
                     <navigationItem key="navigationItem" title="Profile and Setting" id="QoD-8C-Mci"/>
                     <connections>
                         <outlet property="darkMode" destination="WWY-Ec-6fU" id="499-PV-CSo"/>
+                        <outlet property="fontButton" destination="EXw-r8-JgJ" id="HjE-zk-yOU"/>
                         <outlet property="iconPicture" destination="LqL-Ni-wEG" id="cbR-Ka-cgu"/>
                         <outlet property="musicButton" destination="chE-X5-RFt" id="6OS-NK-dTf"/>
                         <outlet property="userNameLabel" destination="LA9-VA-q8g" id="AgB-FE-ibQ"/>
