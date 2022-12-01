@@ -15,8 +15,9 @@ class EnterPageViewController: UIViewController {
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var towerImage: UIImageView!
     @IBOutlet weak var flagImage: UIImageView!
-    
+    @IBOutlet weak var WelcomeLabel: UILabel!
     @IBOutlet weak var instruction: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,6 +47,7 @@ class EnterPageViewController: UIViewController {
         self.startButton.isEnabled = false
         self.startButton.alpha = 0.0
         self.appName.alpha = 0.0
+        self.WelcomeLabel.alpha = 0.0
         
         instruction.numberOfLines = 0
     }
@@ -90,6 +92,13 @@ class EnterPageViewController: UIViewController {
                 withDuration: 1.0,
                 animations: {
                     self.instruction.alpha = 0.0
+                }
+            )
+            
+            UIView.animate (
+                withDuration: 1.0,
+                animations: {
+                    self.WelcomeLabel.alpha = 1.0
                 }
             )
             

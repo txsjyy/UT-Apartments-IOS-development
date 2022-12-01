@@ -53,6 +53,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
 
     
+    @IBOutlet weak var resetButton: UIButton!
     @IBAction func playMusic(_ sender: Any) {
         if let player = player, player.isPlaying{
             player.stop()
@@ -95,6 +96,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var iconPicture: UIImageView!
+    @IBAction func budgetfield(_ sender: Any) {
+    }
     let picker = UIImagePickerController()
     //let myImage = UIImage()
     
