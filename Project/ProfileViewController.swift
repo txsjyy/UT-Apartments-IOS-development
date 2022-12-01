@@ -66,7 +66,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
         
         darkMode.setOn(false, animated: false)
-        darkMode.isOn = UserDefaults.standard.bool(forKey: "Switch")
+       // darkMode.isOn = UserDefaults.standard.bool(forKey: "Switch")
     }
 //
 //    override var traitCollection: UITraitCollection {

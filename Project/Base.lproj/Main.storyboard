@@ -19,40 +19,61 @@
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate My Apartment" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uuo-S0-tgY">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="UT APT" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uuo-S0-tgY">
                                 <rect key="frame" x="127" y="228" width="176" height="159"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LJo-qp-64V">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LJo-qp-64V">
                                 <rect key="frame" x="182" y="479" width="66" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="poL-ly-6Gx"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Start!"/>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="CKb-AU-WLx"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="uttower" translatesAutoresizingMaskIntoConstraints="NO" id="BTJ-Tu-OTw">
+                                <rect key="frame" x="166" y="565" width="99" height="201"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="9Ne-Zt-6Hu">
+                                <rect key="frame" x="0.0" y="103" width="430" height="83"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="83" id="s8V-KI-1hl"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Swipe left or right to adjust. Swipe up to launch!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jPd-7x-6cx">
+                                <rect key="frame" x="113" y="308" width="205" height="125"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Jap-sa-mbT"/>
                         <color key="backgroundColor" red="0.44112004290282075" green="0.76942896842956543" blue="0.42980701776587454" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="Uuo-S0-tgY" firstAttribute="centerX" secondItem="LJo-qp-64V" secondAttribute="centerX" id="03g-sG-TQz"/>
-                            <constraint firstItem="LJo-qp-64V" firstAttribute="top" secondItem="Uuo-S0-tgY" secondAttribute="bottom" constant="92" id="WWN-VZ-lWm"/>
-                            <constraint firstItem="Uuo-S0-tgY" firstAttribute="top" secondItem="Jap-sa-mbT" secondAttribute="top" constant="125" id="XHw-2w-bUP"/>
-                            <constraint firstItem="Uuo-S0-tgY" firstAttribute="leading" secondItem="Jap-sa-mbT" secondAttribute="leading" constant="127" id="XbY-2c-BZM"/>
-                            <constraint firstItem="Uuo-S0-tgY" firstAttribute="centerX" secondItem="upy-6o-xR3" secondAttribute="centerX" id="g2n-48-pkU"/>
-                            <constraint firstItem="Jap-sa-mbT" firstAttribute="bottom" secondItem="LJo-qp-64V" secondAttribute="bottom" constant="384" id="tHp-u0-i0O"/>
+                            <constraint firstItem="9Ne-Zt-6Hu" firstAttribute="centerX" secondItem="Jap-sa-mbT" secondAttribute="centerX" id="32c-M8-Jsx"/>
+                            <constraint firstItem="9Ne-Zt-6Hu" firstAttribute="top" secondItem="Jap-sa-mbT" secondAttribute="top" id="eF6-2A-Izy"/>
+                            <constraint firstItem="9Ne-Zt-6Hu" firstAttribute="trailing" secondItem="upy-6o-xR3" secondAttribute="trailing" id="g0U-B0-uuS"/>
+                            <constraint firstItem="9Ne-Zt-6Hu" firstAttribute="leading" secondItem="upy-6o-xR3" secondAttribute="leading" id="qNp-WH-7MV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="0dE-0A-j9c"/>
+                    <connections>
+                        <outlet property="appName" destination="Uuo-S0-tgY" id="6Rj-9U-eor"/>
+                        <outlet property="flagImage" destination="9Ne-Zt-6Hu" id="5Bl-Hz-eGO"/>
+                        <outlet property="instruction" destination="jPd-7x-6cx" id="gp5-QU-LqD"/>
+                        <outlet property="startButton" destination="LJo-qp-64V" id="Oix-8e-qcn"/>
+                        <outlet property="towerImage" destination="BTJ-Tu-OTw" id="a1v-CK-6VO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Kq-bg-2Iw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="77.753779697624196"/>
+            <point key="canvasLocation" x="0.0" y="77.253218884120173"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -654,10 +675,12 @@
     </scenes>
     <resources>
         <image name="camera.fill" catalog="system" width="128" height="93"/>
+        <image name="flag" width="1920" height="1080"/>
         <image name="music.note.list" catalog="system" width="128" height="115"/>
         <image name="pencil.line" catalog="system" width="128" height="98"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="photo" catalog="system" width="128" height="93"/>
+        <image name="uttower" width="487" height="646"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
