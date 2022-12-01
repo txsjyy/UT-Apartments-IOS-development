@@ -543,8 +543,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Silence Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0y-Tn-cjx">
-                                <rect key="frame" x="88" y="605" width="103" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Random Music" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0y-Tn-cjx">
+                                <rect key="frame" x="88" y="605" width="113" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -566,10 +566,6 @@
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EXw-r8-JgJ">
                                 <rect key="frame" x="274" y="673" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </switch>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CQD-zA-WTh">
-                                <rect key="frame" x="276" y="605" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XVM-CY-7he">
@@ -600,6 +596,15 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Delete Account"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="chE-X5-RFt">
+                                <rect key="frame" x="275" y="598" width="51" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="music.note.list" catalog="system"/>
+                                <connections>
+                                    <action selector="playMusic:" destination="Cgu-V5-rRg" eventType="touchUpInside" id="aax-8w-Oxa"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Inv-nC-VId"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -608,6 +613,7 @@
                     <connections>
                         <outlet property="darkMode" destination="WWY-Ec-6fU" id="499-PV-CSo"/>
                         <outlet property="iconPicture" destination="LqL-Ni-wEG" id="cbR-Ka-cgu"/>
+                        <outlet property="musicButton" destination="chE-X5-RFt" id="6OS-NK-dTf"/>
                         <outlet property="userNameLabel" destination="LA9-VA-q8g" id="AgB-FE-ibQ"/>
                     </connections>
                 </viewController>
@@ -648,6 +654,7 @@
     </scenes>
     <resources>
         <image name="camera.fill" catalog="system" width="128" height="93"/>
+        <image name="music.note.list" catalog="system" width="128" height="115"/>
         <image name="pencil.line" catalog="system" width="128" height="98"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="photo" catalog="system" width="128" height="93"/>

@@ -12,6 +12,39 @@ import FirebaseStorage
 
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    @IBOutlet weak var musicButton: UIButton!
+    var player: AVAudioPlayer?
+    
+    @IBAction func playMusic(_ sender: Any) {
+        if let player = player, player.isPlaying{
+            player.stop()
+        }
+        else {
+            var ran = Int.random(in: 1..<6)
+            let urlString = Bundle.main.path(forResource: "audio\(ran)", ofType: "mp3")
+            
+            do {
+                try AVAudioSession.sharedInstance().setMode(.default)
+                try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+                
+                guard let urlString = urlString else {
+                    return
+                }
+                
+                player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
+                
+                guard let player = player else {
+                    return
+                }
+                
+                player.play()
+            }
+            catch {
+                print("someting went wrong")
+            }
+        }
+    }
+    
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var iconPicture: UIImageView!
     let picker = UIImagePickerController()
