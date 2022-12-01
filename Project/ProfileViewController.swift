@@ -50,54 +50,12 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
 
     @IBOutlet weak var musicButton: UIButton!
     var player: AVAudioPlayer?
-    
-
-    
     @IBOutlet weak var resetButton: UIButton!
-    @IBAction func playMusic(_ sender: Any) {
-        if let player = player, player.isPlaying{
-            player.stop()
-        }
-        else {
-            var ran = Int.random(in: 1..<6)
-            let urlString = Bundle.main.path(forResource: "audio\(ran)", ofType: "mp3")
-            
-            do {
-                try AVAudioSession.sharedInstance().setMode(.default)
-                try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
-                
-                guard let urlString = urlString else {
-                    return
-                }
-                
-                player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
-                
-                guard let player = player else {
-                    return
-                }
-                
-                player.play()
-            }
-            catch {
-                print("someting went wrong")
-            }
-        }
-    }
-    
     @IBOutlet weak var fontButton: UISwitch!
-    @IBAction func fontButton(_ sender: UISwitch) {
-        if sender.isOn{
-            UIApplication.shared.windows.first?.changeFontSize()
-            return
-        }
-        UIApplication.shared.windows.first?.resetFontSize()
-        return
-    }
-    
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var iconPicture: UIImageView!
-    @IBAction func budgetfield(_ sender: Any) {
-    }
+    @IBOutlet weak var darkMode: UISwitch!
+
     let picker = UIImagePickerController()
     //let myImage = UIImage()
     
@@ -119,7 +77,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         darkMode.setOn(false, animated: false)
         fontButton.setOn(false, animated: false)
        // darkMode.isOn = UserDefaults.standard.bool(forKey: "Switch")
-        
     }
 //
 //    override var traitCollection: UITraitCollection {
@@ -132,7 +89,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         present(picker, animated: true)
     }
     
-    @IBOutlet weak var darkMode: UISwitch!
+    
     
     @IBAction func darkModeSwitch(_ sender: UISwitch) {
         //UserDefaults.standard.set(sender.isOn, forKey: "Switch")
@@ -150,27 +107,27 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let chosenImage = info[.originalImage] as! UIImage
         iconPicture.image = chosenImage
-        guard let imageData = chosenImage.pngData() else {
-            return
-        }
-        let storage = Storage.storage().reference()
-        let ref = storage.child("images/testfile.png")
-        ref.putData(imageData) { _,error in
-            guard error == nil else {
-                print("Failed to upload")
-                return
-            }
-            ref.downloadURL(){ url,error in
-                guard let url = url, error == nil else {
-                    return
-                }
-                let urlString = url.absoluteString
-                let ref = Database.database().reference()
-                let uid = Auth.auth().currentUser?.uid
-                
-                ref.child("users").child(uid!).child("profileImage").setValue(urlString)
-            }
-        }
+//        guard let imageData = chosenImage.pngData() else {
+//            return
+//        }
+//        let storage = Storage.storage().reference()
+//        let ref = storage.child("images/testfile.png")
+//        ref.putData(imageData) { _,error in
+//            guard error == nil else {
+//                print("Failed to upload")
+//                return
+//            }
+//            ref.downloadURL(){ url,error in
+//                guard let url = url, error == nil else {
+//                    return
+//                }
+//                let urlString = url.absoluteString
+//                let ref = Database.database().reference()
+//                let uid = Auth.auth().currentUser?.uid
+//                
+//                ref.child("users").child(uid!).child("profileImage").setValue(urlString)
+//            }
+//        }
         viewWillAppear(false)
         dismiss(animated: true)
     }
@@ -216,5 +173,38 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             present(alertVC,animated:true)
         }
     }
-    
+//  play music button
+    @IBAction func playMusic(_ sender: Any) {
+        if let player = player, player.isPlaying{
+            player.stop()
+        }
+        else {
+            var ran = Int.random(in: 1..<6)
+            let urlString = Bundle.main.path(forResource: "audio\(ran)", ofType: "mp3")
+            do {
+                try AVAudioSession.sharedInstance().setMode(.default)
+                try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+                guard let urlString = urlString else {
+                    return
+                }
+                player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
+                guard let player = player else {
+                    return
+                }
+                player.play()
+            }
+            catch {
+                print("someting went wrong")
+            }
+        }
+    }
+//  font button
+    @IBAction func fontButton(_ sender: UISwitch) {
+        if sender.isOn{
+            UIApplication.shared.windows.first?.changeFontSize()
+            return
+        }
+        UIApplication.shared.windows.first?.resetFontSize()
+        return
+    }
 }
