@@ -353,27 +353,61 @@
                                     <outletCollection property="gestureRecognizers" destination="Rrc-pb-Rii" appends="YES" id="iPw-MM-aJz"/>
                                 </connections>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price Range:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jzr-04-ph5">
+                                <rect key="frame" x="250" y="163" width="96" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance to GDC:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xsh-54-TKk">
+                                <rect key="frame" x="250" y="245" width="132" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x6c-0g-Elr">
+                                <rect key="frame" x="250" y="286" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BwM-Bg-tOj">
+                                <rect key="frame" x="250" y="204" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="RkS-Fa-B3j"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="jzr-04-ph5" firstAttribute="top" secondItem="RkS-Fa-B3j" secondAttribute="top" constant="60" id="0GK-wZ-pU6"/>
                             <constraint firstItem="dPX-GM-JQl" firstAttribute="leading" secondItem="gjb-mX-R15" secondAttribute="leading" id="42b-gO-2Nc"/>
+                            <constraint firstItem="xsh-54-TKk" firstAttribute="leading" secondItem="dPX-GM-JQl" secondAttribute="trailing" constant="30" id="47v-fS-OnA"/>
+                            <constraint firstItem="jzr-04-ph5" firstAttribute="leading" secondItem="dPX-GM-JQl" secondAttribute="trailing" constant="30" id="DSL-kM-pM8"/>
                             <constraint firstItem="fE0-fj-MH3" firstAttribute="leading" secondItem="izJ-Me-2cC" secondAttribute="leading" constant="143" id="PeY-MH-s9B"/>
                             <constraint firstItem="dPX-GM-JQl" firstAttribute="top" secondItem="RkS-Fa-B3j" secondAttribute="top" constant="50" id="RZe-K5-NJn"/>
                             <constraint firstItem="gjb-mX-R15" firstAttribute="trailing" secondItem="izJ-Me-2cC" secondAttribute="trailingMargin" id="S1R-zc-zEs"/>
                             <constraint firstItem="RkS-Fa-B3j" firstAttribute="trailing" secondItem="dPX-GM-JQl" secondAttribute="trailing" constant="210" id="Sho-Pb-d0g"/>
                             <constraint firstItem="dPX-GM-JQl" firstAttribute="leading" secondItem="izJ-Me-2cC" secondAttribute="leadingMargin" id="TGC-m8-gvE"/>
+                            <constraint firstItem="x6c-0g-Elr" firstAttribute="top" secondItem="xsh-54-TKk" secondAttribute="bottom" constant="20" id="XTt-Rx-Jps"/>
                             <constraint firstItem="RkS-Fa-B3j" firstAttribute="bottom" secondItem="gjb-mX-R15" secondAttribute="bottom" constant="121" id="cAm-j9-cGC"/>
+                            <constraint firstItem="xsh-54-TKk" firstAttribute="top" secondItem="BwM-Bg-tOj" secondAttribute="bottom" constant="20" id="dzh-RI-ueT"/>
                             <constraint firstItem="dPX-GM-JQl" firstAttribute="top" secondItem="fE0-fj-MH3" secondAttribute="bottom" constant="64" id="fAZ-d9-PfQ"/>
                             <constraint firstItem="fE0-fj-MH3" firstAttribute="centerX" secondItem="izJ-Me-2cC" secondAttribute="centerX" id="jUM-5b-UOi"/>
+                            <constraint firstItem="x6c-0g-Elr" firstAttribute="leading" secondItem="dPX-GM-JQl" secondAttribute="trailing" constant="30" id="jbN-Jr-dAp"/>
                             <constraint firstItem="gjb-mX-R15" firstAttribute="top" secondItem="dPX-GM-JQl" secondAttribute="bottom" constant="50" id="kR2-Ay-Sqr"/>
+                            <constraint firstItem="BwM-Bg-tOj" firstAttribute="leading" secondItem="dPX-GM-JQl" secondAttribute="trailing" constant="30" id="q8f-6t-nYC"/>
+                            <constraint firstItem="BwM-Bg-tOj" firstAttribute="top" secondItem="jzr-04-ph5" secondAttribute="bottom" constant="20" id="x5X-o0-evF"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="719-h3-tbL"/>
                     <connections>
                         <outlet property="apt_imageView" destination="dPX-GM-JQl" id="p9k-XA-WLw"/>
                         <outlet property="apt_mapView" destination="gjb-mX-R15" id="pUC-kV-E2J"/>
+                        <outlet property="distance_label" destination="x6c-0g-Elr" id="Hqs-iA-y4S"/>
                         <outlet property="name_label" destination="fE0-fj-MH3" id="C6y-2T-Juv"/>
+                        <outlet property="price_label" destination="BwM-Bg-tOj" id="59a-iE-7BA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oaM-35-QCO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
