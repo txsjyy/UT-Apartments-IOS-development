@@ -43,7 +43,7 @@ let crest = Apartment(apt_name: "Crest at Pearl", apt_image: "crest", apt_latitu
 
 let pointe = Apartment(apt_name: "Pointe", apt_image: "pointe", apt_latitude: 30.28307, apt_longitude: -97.74491, apt_price: "$900 - $2,000")
 
-let standard = Apartment(apt_name: "the Standard", apt_image: "standard", apt_latitude: 30.28703, apt_longitude: -97.74579, apt_price: "$905 - $1,810")
+let standard = Apartment(apt_name: "Standard", apt_image: "standard", apt_latitude: 30.28703, apt_longitude: -97.74579, apt_price: "$905 - $1,810")
 
 
 
@@ -136,17 +136,18 @@ class MainViewController: UIViewController,UICollectionViewDelegate, UICollectio
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         let itemsPerRow: CGFloat = 3
-        let lineSpacing: CGFloat = 5
-        let interItemSpacing: CGFloat = 5
+//        let lineSpacing: CGFloat = 5
+//        let interItemSpacing: CGFloat = 5
         
-        let width = (collectionView.frame.width - (itemsPerRow - 1) * interItemSpacing) / itemsPerRow
+        let width = (collectionView.frame.width - 15) / itemsPerRow
         let height = width
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: width, height: height)
         layout.sectionInset = UIEdgeInsets.zero
         layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = lineSpacing
-        layout.minimumInteritemSpacing = interItemSpacing
+        layout.minimumInteritemSpacing = 3
+        layout.minimumLineSpacing = 3
+        layout.sectionInset = UIEdgeInsets(top: 3, left: 3, bottom: 3, right: 3)
         collectionView.setCollectionViewLayout(layout, animated: true)
         
     }

@@ -286,9 +286,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wr4-1c-hSG">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wr4-1c-hSG">
                                 <rect key="frame" x="0.0" y="103" width="430" height="746"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aqg-I7-bVp">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -313,6 +312,12 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="a0z-cL-GzO"/>
                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                        <constraints>
+                            <constraint firstItem="a0z-cL-GzO" firstAttribute="bottom" secondItem="wr4-1c-hSG" secondAttribute="bottom" id="gUW-uF-NQ5"/>
+                            <constraint firstItem="wr4-1c-hSG" firstAttribute="leading" secondItem="a0z-cL-GzO" secondAttribute="leading" id="itf-LV-ZyM"/>
+                            <constraint firstItem="a0z-cL-GzO" firstAttribute="trailing" secondItem="wr4-1c-hSG" secondAttribute="trailing" id="jTs-PF-YBT"/>
+                            <constraint firstItem="wr4-1c-hSG" firstAttribute="top" secondItem="a0z-cL-GzO" secondAttribute="top" id="mFP-9L-QN0"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Rate My Apartment" id="qcM-4e-Or8">
                         <barButtonItem key="backBarButtonItem" title="back" id="mas-2d-jCV"/>
