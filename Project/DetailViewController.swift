@@ -13,7 +13,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var detailPicture: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        detailPicture.image = self.delegate.apt_imageView.image
         // Do any additional setup after loading the view.
     }
     

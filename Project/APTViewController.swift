@@ -33,7 +33,7 @@ class APTViewController: UIViewController, MKMapViewDelegate {
     }
     
     @IBAction func picPressed(_ sender: Any) {
-        self.performSegue(withIdentifier: "detailSegue", sender: sender)
+        //self.performSegue(withIdentifier: "detailSegue", sender: sender)
     }
     
     
