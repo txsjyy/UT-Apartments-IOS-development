@@ -17,7 +17,10 @@ class DetailViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func savePhoto(_ sender: Any) {
+        UIImageWriteToSavedPhotosAlbum(detailPicture.image!, nil, nil, nil)
+    }
+    
     /*
     // MARK: - Navigation
 
