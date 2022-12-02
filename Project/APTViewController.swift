@@ -26,6 +26,15 @@ class APTViewController: UIViewController, MKMapViewDelegate {
     let gdc_latitude: Double = 30.28624
     let gdc_longitude: Double = -97.73653
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detailSegue", let nextVC = segue.destination as? DetailViewController{
+            nextVC.detailPicture.image = self.apt_imageView.image
+        }
+    }
+    
+    @IBAction func picClicked(_ sender: Any) {
+        self.performSegue(withIdentifier: "detailSegue", sender: sender)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -311,6 +311,16 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xqn-1v-0FU">
+                                            <rect key="frame" x="20" y="0.0" width="173" height="150"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain"/>
+                                            <connections>
+                                                <action selector="picClicked:" destination="7Sr-lC-xEB" eventType="touchUpInside" id="D6s-90-68A"/>
+                                                <segue destination="v0m-iu-qhT" kind="show" identifier="detailSegue" id="7n8-Uz-ToG"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
@@ -328,8 +338,43 @@
                     <navigationItem key="navigationItem" title="Favourite Apartments" id="mkV-DN-sdz"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BQU-uI-9fa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="7Sr-lC-xEB" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2677.6744186046512" y="-583.26180257510737"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="SrE-E5-PfX">
+            <objects>
+                <viewController id="v0m-iu-qhT" customClass="DetailViewController" customModule="Project" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cqW-b0-M8N">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dHq-lJ-MED">
+                                <rect key="frame" x="0.0" y="63" width="431" height="704.33333333333337"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="age-gs-tGg">
+                                        <rect key="frame" x="0.0" y="0.0" width="431" height="662"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e6G-Jc-tmI">
+                                        <rect key="frame" x="0.0" y="670" width="431" height="34.333333333333371"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Save"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="JEc-Is-Bod"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="SYB-tu-hsp"/>
+                    <connections>
+                        <outlet property="detailPicture" destination="age-gs-tGg" id="ybt-Yy-wz3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EY1-xW-DRy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3600" y="-777.03862660944208"/>
         </scene>
         <!--Rate My Apartment-->
         <scene sceneID="tDE-qh-Bf7">

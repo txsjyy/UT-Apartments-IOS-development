@@ -2,16 +2,17 @@
 //  DetailViewController.swift
 //  Project
 //
-//  Created by 李明达 on 11/28/22.
+//  Created by 李明达 on 12/1/22.
 //
 
 import UIKit
 
 class DetailViewController: UIViewController {
-
+    var delegate: DetailViewController!
+    @IBOutlet weak var detailPicture: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     

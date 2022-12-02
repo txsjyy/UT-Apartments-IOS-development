@@ -14,6 +14,7 @@
 		0A27D90729387C7A009E0054 /* audio1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0A27D90229387C76009E0054 /* audio1.mp3 */; };
 		0A27D90829387C7A009E0054 /* audio2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0A27D90329387C77009E0054 /* audio2.mp3 */; };
 		0A27D90929387C7A009E0054 /* audio5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0A27D90429387C7A009E0054 /* audio5.mp3 */; };
+		0AFA6C372939AF740025245A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFA6C362939AF740025245A /* DetailViewController.swift */; };
 		9CC7753129369F5B00A69856 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CC7753029369F5B00A69856 /* MapKit.framework */; };
 		9CFA2C752934306C00966B0B /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA2C732934306C00966B0B /* ItemCollectionViewCell.swift */; };
 		9CFA2C762934306C00966B0B /* ItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CFA2C742934306C00966B0B /* ItemCollectionViewCell.xib */; };
@@ -44,6 +45,7 @@
 		0A27D90229387C76009E0054 /* audio1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = audio1.mp3; sourceTree = "<group>"; };
 		0A27D90329387C77009E0054 /* audio2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = audio2.mp3; sourceTree = "<group>"; };
 		0A27D90429387C7A009E0054 /* audio5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = audio5.mp3; sourceTree = "<group>"; };
+		0AFA6C362939AF740025245A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		9CC7753029369F5B00A69856 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		9CFA2C732934306C00966B0B /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		9CFA2C742934306C00966B0B /* ItemCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				9CFA2C742934306C00966B0B /* ItemCollectionViewCell.xib */,
 				B25EC38A29355CE300218938 /* Service.swift */,
 				B228F16129186D8B00548848 /* Main.storyboard */,
+				0AFA6C362939AF740025245A /* DetailViewController.swift */,
 				0A27D8F829383D5D009E0054 /* AddressViewController.swift */,
 				B228F16729186D8B00548848 /* Assets.xcassets */,
 				B228F16929186D8B00548848 /* LaunchScreen.storyboard */,
@@ -235,6 +238,7 @@
 				B21979112937ED91000BEBC8 /* FavouriteTableViewCell.swift in Sources */,
 				B219790B2937E63B000BEBC8 /* EnterPageViewController.swift in Sources */,
 				0A27D8F929383D5D009E0054 /* AddressViewController.swift in Sources */,
+				0AFA6C372939AF740025245A /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,7 +385,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = NSY3PYCJF6;
+				DEVELOPMENT_TEAM = PCHFZWJY8H;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Project/Info.plist;
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "please allow access to upload photos";
@@ -410,7 +414,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = NSY3PYCJF6;
+				DEVELOPMENT_TEAM = PCHFZWJY8H;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Project/Info.plist;
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "please allow access to upload photos";
