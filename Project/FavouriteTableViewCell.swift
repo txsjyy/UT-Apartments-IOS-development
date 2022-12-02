@@ -10,6 +10,7 @@ import UIKit
 class FavouriteTableViewCell: UITableViewCell {
 
     @IBOutlet weak var favouriteLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var favouriteImage: UIImageView!
     
     override func awakeFromNib() {

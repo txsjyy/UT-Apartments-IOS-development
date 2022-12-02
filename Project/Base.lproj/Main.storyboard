@@ -281,7 +281,7 @@
         <scene sceneID="goV-gw-TaU">
             <objects>
                 <tableViewController id="DsD-tk-a3C" customClass="FavouriteTableViewController" customModule="Project" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Stg-bX-C1I">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Stg-bX-C1I">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemRedColor"/>
@@ -297,8 +297,15 @@
                                             <rect key="frame" x="20" y="0.0" width="173" height="150"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Kh-Az-S4d">
-                                            <rect key="frame" x="277" y="26" width="42" height="99"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Kh-Az-S4d">
+                                            <rect key="frame" x="234" y="22" width="149" height="60"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aDU-Ty-TaG">
+                                            <rect key="frame" x="234" y="83" width="149" height="56"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -309,6 +316,7 @@
                                 <connections>
                                     <outlet property="favouriteImage" destination="NMw-Kn-qKw" id="9lt-a2-4ZV"/>
                                     <outlet property="favouriteLabel" destination="6Kh-Az-S4d" id="qk7-2g-l5h"/>
+                                    <outlet property="priceLabel" destination="aDU-Ty-TaG" id="zpc-Lh-YM6"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -389,11 +397,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gjb-mX-R15">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gjb-mX-R15">
                                 <rect key="frame" x="20" y="373" width="390" height="355"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dPX-GM-JQl">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dPX-GM-JQl">
                                 <rect key="frame" x="20" y="153" width="200" height="170"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -430,16 +438,12 @@
                         <constraints>
                             <constraint firstItem="RkS-Fa-B3j" firstAttribute="trailing" secondItem="xsh-54-TKk" secondAttribute="trailing" constant="48" id="2AW-0P-S5T"/>
                             <constraint firstItem="gjb-mX-R15" firstAttribute="centerX" secondItem="fE0-fj-MH3" secondAttribute="centerX" id="6eC-Hq-Chb"/>
-                            <constraint firstItem="RkS-Fa-B3j" firstAttribute="bottom" secondItem="gjb-mX-R15" secondAttribute="bottom" constant="121" id="9TB-1A-tiV"/>
                             <constraint firstItem="xsh-54-TKk" firstAttribute="leading" secondItem="x6c-0g-Elr" secondAttribute="leading" id="EY2-3I-UvP"/>
                             <constraint firstItem="jzr-04-ph5" firstAttribute="top" secondItem="RkS-Fa-B3j" secondAttribute="top" constant="60" id="K5K-Uy-7hE"/>
                             <constraint firstItem="xsh-54-TKk" firstAttribute="top" secondItem="BwM-Bg-tOj" secondAttribute="bottom" constant="20" id="Lm2-Vw-AS8"/>
                             <constraint firstItem="jzr-04-ph5" firstAttribute="leading" secondItem="BwM-Bg-tOj" secondAttribute="leading" id="Oe0-Ig-X5b"/>
-                            <constraint firstItem="dPX-GM-JQl" firstAttribute="leading" secondItem="izJ-Me-2cC" secondAttribute="leadingMargin" id="Otg-XR-tY5"/>
-                            <constraint firstItem="fE0-fj-MH3" firstAttribute="leading" secondItem="izJ-Me-2cC" secondAttribute="leading" constant="143" id="PeY-MH-s9B"/>
                             <constraint firstItem="gjb-mX-R15" firstAttribute="top" secondItem="x6c-0g-Elr" secondAttribute="bottom" constant="66" id="dWY-52-5sv"/>
                             <constraint firstItem="x6c-0g-Elr" firstAttribute="top" secondItem="xsh-54-TKk" secondAttribute="bottom" constant="20" id="dab-52-cDF"/>
-                            <constraint firstItem="fE0-fj-MH3" firstAttribute="centerX" secondItem="izJ-Me-2cC" secondAttribute="centerX" id="jUM-5b-UOi"/>
                             <constraint firstItem="dPX-GM-JQl" firstAttribute="leading" secondItem="gjb-mX-R15" secondAttribute="leading" id="uz8-xO-6RU"/>
                             <constraint firstItem="BwM-Bg-tOj" firstAttribute="top" secondItem="jzr-04-ph5" secondAttribute="bottom" constant="20" id="vY8-s4-6Nn"/>
                             <constraint firstItem="BwM-Bg-tOj" firstAttribute="leading" secondItem="xsh-54-TKk" secondAttribute="leading" id="w3o-vk-0Is"/>
@@ -448,7 +452,13 @@
                             <constraint firstItem="gjb-mX-R15" firstAttribute="top" secondItem="dPX-GM-JQl" secondAttribute="bottom" constant="50" id="zme-jN-42S"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="719-h3-tbL"/>
+                    <navigationItem key="navigationItem" id="719-h3-tbL">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="RqY-GD-QTR">
+                            <connections>
+                                <action selector="AddButton:" destination="SYB-TF-hlr" id="G3u-eX-kRI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="apt_imageView" destination="dPX-GM-JQl" id="p9k-XA-WLw"/>
                         <outlet property="apt_mapView" destination="gjb-mX-R15" id="pUC-kV-E2J"/>

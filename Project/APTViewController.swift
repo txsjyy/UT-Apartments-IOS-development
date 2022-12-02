@@ -8,19 +8,24 @@
 import UIKit
 import MapKit
 import CoreLocation
+import CoreData
+
+let appDelegate = UIApplication.shared.delegate as! AppDelegate
+let context = appDelegate.persistentContainer.viewContext
 
 class APTViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var name_label: UILabel!
     
     @IBOutlet weak var price_label: UILabel!
-    var delegate1: UIViewController!
-    
     @IBOutlet weak var distance_label: UILabel!
     @IBOutlet weak var apt_mapView: MKMapView!
     @IBOutlet weak var apt_imageView: UIImageView!
     
+    var delegate1: UIViewController!
+    
     let gdc_latitude: Double = 30.28624
     let gdc_longitude: Double = -97.73653
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +61,31 @@ class APTViewController: UIViewController, MKMapViewDelegate {
         distance_label.text = String(format: "%.2f", distanceInMeters) + "m"
     }
     
-
+    @IBAction func AddButton(_ sender: Any) {
+        Favouritelist.append(apartment_list[chosenidex])
+        self.storeAPT(newAPT: apartment_list[chosenidex])
+    }
+//  func for storing pizza in coredata
+    func storeAPT(newAPT:Apartment) {
+        let APT = NSEntityDescription.insertNewObject(forEntityName: "StoredApartment", into: context)
+        APT.setValue(newAPT.apt_name, forKey: "aptName")
+        APT.setValue(newAPT.apt_image, forKey: "aptImage")
+        APT.setValue(newAPT.apt_longitude, forKey: "aptLong")
+        APT.setValue(newAPT.apt_latitude, forKey: "aptLa")
+        APT.setValue(newAPT.apt_price, forKey: "aptPrice")
+//      commit changes
+        saveContext()
+    }
+    func saveContext () {
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch {
+                let nserror = error as NSError
+                NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+            }
+        }
+    }
+    
    
 }
