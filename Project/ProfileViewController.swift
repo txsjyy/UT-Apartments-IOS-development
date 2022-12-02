@@ -62,6 +62,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         picker.delegate = self
+        
+        iconPicture.layer.cornerRadius = 15
+        iconPicture.clipsToBounds = true
+        
         let storage = Storage.storage()
         let defaults = UserDefaults.standard
         
