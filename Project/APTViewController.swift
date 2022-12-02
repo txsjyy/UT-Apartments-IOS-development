@@ -28,13 +28,14 @@ class APTViewController: UIViewController, MKMapViewDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "detailSegue", let nextVC = segue.destination as? DetailViewController{
-            nextVC.detailPicture.image = self.apt_imageView.image
+            nextVC.delegate = self
         }
     }
     
-    @IBAction func picClicked(_ sender: Any) {
+    @IBAction func picPressed(_ sender: Any) {
         self.performSegue(withIdentifier: "detailSegue", sender: sender)
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

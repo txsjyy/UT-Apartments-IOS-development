@@ -8,7 +8,8 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-    var delegate: DetailViewController!
+    
+    var delegate: APTViewController!
     @IBOutlet weak var detailPicture: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
