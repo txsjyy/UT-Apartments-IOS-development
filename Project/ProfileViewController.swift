@@ -55,6 +55,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var iconPicture: UIImageView!
     @IBOutlet weak var darkMode: UISwitch!
+    let defaults = UserDefaults.standard
 
     let picker = UIImagePickerController()
     //let myImage = UIImage()
@@ -67,17 +68,22 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         iconPicture.clipsToBounds = true
         
         let storage = Storage.storage()
-        let defaults = UserDefaults.standard
         
-        Service.getUserInfo(onSuccess: {
-            self.userNameLabel.text = " \(defaults.string(forKey: "userNameKey")!)"
-            if defaults.string(forKey: "userProfileImageKey") != "none" {
-                            let storageRef = storage.reference(forURL: defaults.string(forKey: "userProfileImageKey")!)
-                        }
+        Service.getUserInfo ( onSuccess: {
+            self.userNameLabel.text = " \(self.defaults.string(forKey: "userNameKey")!)"
+            let urlString =  self.defaults.string(forKey: "userProfileImageKey")!
+            let url = URL(string: urlString)
+            URLSession.shared.dataTask(with: url!) {data,_,error in
+                guard let data = data, error == nil else {
+                    return
+                }
+                let image = UIImage(data: data)
+                self.iconPicture.image = image
+            }
         }) { (error) in
             self.present(Service.createAlertController(title: "Error", message: error!.localizedDescription), animated: true, completion: nil)
         }
-        
+
         darkMode.setOn(false, animated: false)
         fontButton.setOn(false, animated: false)
        // darkMode.isOn = UserDefaults.standard.bool(forKey: "Switch")
@@ -111,27 +117,27 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let chosenImage = info[.originalImage] as! UIImage
         iconPicture.image = chosenImage
-//        guard let imageData = chosenImage.pngData() else {
-//            return
-//        }
-//        let storage = Storage.storage().reference()
-//        let ref = storage.child("images/testfile.png")
-//        ref.putData(imageData) { _,error in
-//            guard error == nil else {
-//                print("Failed to upload")
-//                return
-//            }
-//            ref.downloadURL(){ url,error in
-//                guard let url = url, error == nil else {
-//                    return
-//                }
-//                let urlString = url.absoluteString
-//                let ref = Database.database().reference()
-//                let uid = Auth.auth().currentUser?.uid
-//                
-//                ref.child("users").child(uid!).child("profileImage").setValue(urlString)
-//            }
-//        }
+        guard let imageData = chosenImage.pngData() else {
+            return
+        }
+        let storage = Storage.storage().reference()
+        let ref = storage.child("images/testfile.png")
+        ref.putData(imageData) { _,error in
+            guard error == nil else {
+                print("Failed to upload")
+                return
+            }
+            ref.downloadURL(){ url,error in
+                guard let url = url, error == nil else {
+                    return
+                }
+                let urlString = url.absoluteString
+                let ref = Database.database().reference()
+                let uid = Auth.auth().currentUser?.uid
+                
+                ref.child("users").child(uid!).child("profileImage").setValue(urlString)
+            }
+        }
         viewWillAppear(false)
         dismiss(animated: true)
     }
@@ -213,8 +219,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     @IBAction func resetButton(_ sender: Any) {
         let auth = Auth.auth()
-        let defaults = UserDefaults.standard
-        auth.sendPasswordReset(withEmail:defaults.string(forKey: "userEmailKey")!) { (error) in
+        auth.sendPasswordReset(withEmail:self.defaults.string(forKey: "userEmailKey")!) { (error) in
             if let error = error {
                 let alert = Service.createAlertController(title: "Error", message: error.localizedDescription)
                 self.present(alert, animated: true, completion: nil)
