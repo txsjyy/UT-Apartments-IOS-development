@@ -61,10 +61,9 @@ class EnterPageViewController: UIViewController {
             UIView.animate(
                 withDuration: 3.0,
                 animations: {
-                    self.towerImage.center.y -= self.view.bounds.height
+                self.towerImage.alpha = 0.0
                 }
             )
-            
             
             UIView.animate (
                 withDuration: 2.0,
