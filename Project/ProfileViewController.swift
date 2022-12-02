@@ -56,7 +56,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var iconPicture: UIImageView!
     @IBOutlet weak var darkMode: UISwitch!
     let defaults = UserDefaults.standard
-
+    let storage = Storage.storage()
     let picker = UIImagePickerController()
     //let myImage = UIImage()
     
@@ -67,25 +67,30 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         iconPicture.layer.cornerRadius = 15
         iconPicture.clipsToBounds = true
         
-        let storage = Storage.storage()
+        
         
         Service.getUserInfo ( onSuccess: {
             self.userNameLabel.text = " \(self.defaults.string(forKey: "userNameKey")!)"
             print(self.defaults.string(forKey: "userProfileImageKey")!)
             if self.defaults.string(forKey: "userProfileImageKey") != "None" {
-                print(0)
+
                 let urlString =  self.defaults.string(forKey: "userProfileImageKey")!
                 let url = URL(string: urlString)
-                print(1)
-                URLSession.shared.dataTask(with: url!) {data,_,error in
+
+
+                let task = URLSession.shared.dataTask(with: url!) {data,_,error in
                     guard let data = data, error == nil else {
+                        print(0)
                         self.present(Service.createAlertController(title: "Error", message: error!.localizedDescription), animated: true, completion: nil)
                         return
                     }
                     print(1)
-                    let image = UIImage(data: data)
-                    self.iconPicture.image = image
+                    DispatchQueue.main.async {
+                        let image = UIImage(data: data)
+                        self.iconPicture.image = image
+                    }
                 }
+                task.resume()
             }
         }) { (error) in
             self.present(Service.createAlertController(title: "Error", message: error!.localizedDescription), animated: true, completion: nil)
@@ -127,8 +132,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         guard let imageData = chosenImage.pngData() else {
             return
         }
-        let storage = Storage.storage().reference()
-        let ref = storage.child("images/testfile.png")
+        let ref = self.storage.reference().child("images/\(String(describing: defaults.string(forKey: "userNameKey")))/profileImage")
         ref.putData(imageData) { _,error in
             guard error == nil else {
                 print("Failed to upload")
@@ -141,7 +145,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 let urlString = url.absoluteString
                 let ref = Database.database().reference()
                 let uid = Auth.auth().currentUser?.uid
-                
                 ref.child("users").child(uid!).child("profileImage").setValue(urlString)
             }
         }
