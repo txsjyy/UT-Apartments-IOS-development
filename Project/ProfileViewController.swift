@@ -14,7 +14,7 @@ extension UIView {
     func changeFontSize(){
         if let v = self as? UIButton {
             let fontSize = v.titleLabel?.font.pointSize
-            v.titleLabel?.font = UIFont.systemFont(ofSize: fontSize!, weight: UIFont.Weight.bold)
+            v.titleLabel?.font = UIFont.systemFont(ofSize: fontSize!, weight: UIFont.Weight.black)
         } else if let v = self as? UILabel {
             let fontSize = v.font.pointSize
             v.font = UIFont.systemFont(ofSize: fontSize, weight: UIFont.Weight.bold)
