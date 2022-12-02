@@ -89,6 +89,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                     DispatchQueue.main.async {
                         let image = UIImage(data: data)
                         self.iconPicture.image = image
+                        self.iconPicture.layer.borderColor = UIColor.black.cgColor
+                        self.iconPicture.layer.cornerRadius = self.iconPicture.frame.height/2
+                        self.iconPicture.clipsToBounds = true
                     }
                 }
                 task.resume()
@@ -96,7 +99,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         }) { (error) in
             self.present(Service.createAlertController(title: "Error", message: error!.localizedDescription), animated: true, completion: nil)
         }
-
         darkMode.setOn(false, animated: false)
         fontButton.setOn(false, animated: false)
        // darkMode.isOn = UserDefaults.standard.bool(forKey: "Switch")
@@ -144,6 +146,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 ref.child("users").child(uid!).child("profileImage").setValue(urlString)
             }
         }
+        iconPicture.layer.borderColor = UIColor.black.cgColor
+        iconPicture.layer.cornerRadius = iconPicture.frame.height/2
+        iconPicture.clipsToBounds = true
         viewWillAppear(false)
         dismiss(animated: true)
     }
