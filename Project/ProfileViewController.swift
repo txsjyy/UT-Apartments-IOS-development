@@ -55,6 +55,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var iconPicture: UIImageView!
     @IBOutlet weak var darkMode: UISwitch!
+    @IBOutlet weak var addressLabel: UITextField!
+    @IBOutlet weak var budgetLabel: UITextField!
     let defaults = UserDefaults.standard
     let storage = Storage.storage()
     let picker = UIImagePickerController()
@@ -67,16 +69,15 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         iconPicture.layer.cornerRadius = 15
         iconPicture.clipsToBounds = true
         
-        
-        
         Service.getUserInfo ( onSuccess: {
             self.userNameLabel.text = " \(self.defaults.string(forKey: "userNameKey")!)"
+            self.addressLabel.text = "\(self.defaults.string(forKey: "userAddressKey")!)"
+            self.budgetLabel.text = "\(self.defaults.string(forKey: "userBudgetKey")!)"
             print(self.defaults.string(forKey: "userProfileImageKey")!)
-            if self.defaults.string(forKey: "userProfileImageKey") != "None" {
+            if self.defaults.string(forKey: "userProfileImageKey") != "none" {
 
                 let urlString =  self.defaults.string(forKey: "userProfileImageKey")!
                 let url = URL(string: urlString)
-
 
                 let task = URLSession.shared.dataTask(with: url!) {data,_,error in
                     guard let data = data, error == nil else {
@@ -100,19 +101,14 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         fontButton.setOn(false, animated: false)
        // darkMode.isOn = UserDefaults.standard.bool(forKey: "Switch")
     }
-//
-//    override var traitCollection: UITraitCollection {
-//      UITraitCollection(traitsFrom: [super.traitCollection, UITraitCollection(userInterfaceStyle: .dark)])
-//    }
-//
+
     @IBAction func librarySelected(_ sender: Any) {
         picker.allowsEditing = false
         picker.sourceType = .photoLibrary
         present(picker, animated: true)
     }
     
-    
-    
+
     @IBAction func darkModeSwitch(_ sender: UISwitch) {
         //UserDefaults.standard.set(sender.isOn, forKey: "Switch")
         if #available(iOS 15.0, *){
@@ -258,5 +254,11 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
               self.dismiss(animated: true)
           }
         }
+    }
+    @IBAction func saveButton(_ sender: Any) {
+        let ref = Database.database().reference()
+        let uid = Auth.auth().currentUser?.uid
+        ref.child("users").child(uid!).child("address").setValue(addressLabel.text)
+        ref.child("users").child(uid!).child("budget").setValue(budgetLabel.text)
     }
 }

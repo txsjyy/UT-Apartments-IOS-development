@@ -14,7 +14,7 @@ class Service {
             let ref = Database.database().reference()
             let uid = Auth.auth().currentUser?.uid
             
-            ref.child("users").child(uid!).setValue(["email" : email, "name" : name,"profileImage": "none","font":"none","sentence": "none"])
+            ref.child("users").child(uid!).setValue(["email" : email, "name" : name,"profileImage": "none","font":"none","address": "none","budget": "none"])
             onSuccess()
         }
         
@@ -33,13 +33,15 @@ class Service {
                 let name = dictionary["name"] as! String
                 let profileImage = dictionary["profileImage"] as! String
                 let font = dictionary["font"] as! String
-                let sentence = dictionary["sentence"] as! String
+                let address = dictionary["address"] as! String
+                let budget = dictionary["budget"] as! String
                 
                 defaults.set(email, forKey: "userEmailKey")
                 defaults.set(name, forKey: "userNameKey")
                 defaults.set(profileImage, forKey: "userProfileImageKey")
                 defaults.set(font, forKey: "userFontKey")
-                defaults.set(sentence, forKey: "userSentenceKey")
+                defaults.set(address, forKey: "userAddressKey")
+                defaults.set(budget, forKey: "userBudgetKey")
                 
                 onSuccess()
             }
