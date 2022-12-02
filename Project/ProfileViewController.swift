@@ -270,4 +270,14 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         ref.child("users").child(uid!).child("address").setValue(addressLabel.text)
         ref.child("users").child(uid!).child("budget").setValue(budgetLabel.text)
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
 }
