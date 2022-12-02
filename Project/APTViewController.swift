@@ -64,6 +64,9 @@ class APTViewController: UIViewController, MKMapViewDelegate {
     @IBAction func AddButton(_ sender: Any) {
         Favouritelist.append(apartment_list[chosenidex])
         self.storeAPT(newAPT: apartment_list[chosenidex])
+        let alert = Service.createAlertController(title: "Add Favourite", message: "You have added \(apartment_list[chosenidex].apt_name) to your Favourite List")
+        self.present(alert, animated: true, completion: nil)
+        
     }
 //  func for storing pizza in coredata
     func storeAPT(newAPT:Apartment) {

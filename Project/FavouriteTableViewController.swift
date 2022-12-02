@@ -61,6 +61,8 @@ class FavouriteTableViewController: UITableViewController {
             Favouritelist.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             removeAPTData(row: indexPath.row)
+            let alert = Service.createAlertController(title: "Remove Favourite", message: "You have Removed \(apartment_list[chosenidex].apt_name) from your Favourite List")
+            self.present(alert, animated: true, completion: nil)
             
         }
     }
