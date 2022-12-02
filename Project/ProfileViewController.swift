@@ -13,9 +13,11 @@ import FirebaseStorage
 extension UIView {
     func changeFontSize(){
         if let v = self as? UIButton {
+            v.titleLabel?.numberOfLines = 0
             let fontSize = v.titleLabel?.font.pointSize
-            v.titleLabel?.font = UIFont.systemFont(ofSize: fontSize!, weight: UIFont.Weight.black)
+            v.titleLabel?.font = UIFont.systemFont(ofSize: fontSize!, weight: UIFont.Weight.bold)
         } else if let v = self as? UILabel {
+            v.numberOfLines = 0
             let fontSize = v.font.pointSize
             v.font = UIFont.systemFont(ofSize: fontSize, weight: UIFont.Weight.bold)
         } else if let v = self as? UITextField {
@@ -68,6 +70,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         iconPicture.layer.cornerRadius = 15
         iconPicture.clipsToBounds = true
+        
+        
         
         Service.getUserInfo ( onSuccess: {
             self.userNameLabel.text = " \(self.defaults.string(forKey: "userNameKey")!)"

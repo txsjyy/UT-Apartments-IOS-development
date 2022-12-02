@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -658,11 +659,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vkf-UQ-vms">
-                                <rect key="frame" x="83" y="628" width="265" height="63"/>
+                            <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vkf-UQ-vms">
+                                <rect key="frame" x="55" y="627" width="137" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Reset Password"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Reset" titleAlignment="automatic">
+                                    <imageReference key="image" image="key.fill" catalog="system" symbolScale="default"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="resetButton:" destination="Cgu-V5-rRg" eventType="touchUpInside" id="Fw6-2O-OMZ"/>
                                 </connections>
@@ -676,11 +679,13 @@
                                     <action selector="playMusic:" destination="Cgu-V5-rRg" eventType="touchUpInside" id="aax-8w-Oxa"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JEg-aY-FJt">
-                                <rect key="frame" x="79" y="681" width="273" height="55"/>
+                            <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JEg-aY-FJt">
+                                <rect key="frame" x="55" y="685" width="137" height="62"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Delete Account"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Delete" titleAlignment="automatic">
+                                    <imageReference key="image" image="person.fill.xmark" catalog="system" symbolScale="default"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="deleteButton:" destination="Cgu-V5-rRg" eventType="touchUpInside" id="lAI-lk-EB9"/>
                                 </connections>
@@ -692,11 +697,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qpi-4h-K6d">
-                                <rect key="frame" x="96" y="580" width="237" height="51"/>
+                            <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qpi-4h-K6d">
+                                <rect key="frame" x="55" y="576" width="137" height="58"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Save Profile"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Save" titleAlignment="automatic">
+                                    <imageReference key="image" image="person" catalog="system" symbolScale="default"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="saveButton:" destination="Cgu-V5-rRg" eventType="touchUpInside" id="pJR-hN-g9e"/>
                                 </connections>
@@ -713,11 +720,10 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e86-oe-3NR">
-                                <rect key="frame" x="113" y="735" width="204" height="58"/>
+                            <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e86-oe-3NR">
+                                <rect key="frame" x="55" y="755" width="137" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Logout "/>
+                                <buttonConfiguration key="configuration" style="plain" title="Logout " titleAlignment="automatic"/>
                                 <connections>
                                     <action selector="logout:" destination="Cgu-V5-rRg" eventType="touchUpInside" id="wOB-uz-pLr"/>
                                 </connections>
@@ -769,8 +775,11 @@
     <resources>
         <image name="camera.fill" catalog="system" width="128" height="93"/>
         <image name="flag" width="1920" height="1080"/>
+        <image name="key.fill" catalog="system" width="82" height="128"/>
         <image name="music.note.list" catalog="system" width="128" height="115"/>
+        <image name="person" catalog="system" width="128" height="121"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="person.fill.xmark" catalog="system" width="128" height="89"/>
         <image name="photo" catalog="system" width="128" height="93"/>
         <image name="photo.stack" catalog="system" width="128" height="122"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
