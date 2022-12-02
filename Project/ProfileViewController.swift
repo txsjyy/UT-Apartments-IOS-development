@@ -71,14 +71,21 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         Service.getUserInfo ( onSuccess: {
             self.userNameLabel.text = " \(self.defaults.string(forKey: "userNameKey")!)"
-            let urlString =  self.defaults.string(forKey: "userProfileImageKey")!
-            let url = URL(string: urlString)
-            URLSession.shared.dataTask(with: url!) {data,_,error in
-                guard let data = data, error == nil else {
-                    return
+            print(self.defaults.string(forKey: "userProfileImageKey")!)
+            if self.defaults.string(forKey: "userProfileImageKey") != "None" {
+                print(0)
+                let urlString =  self.defaults.string(forKey: "userProfileImageKey")!
+                let url = URL(string: urlString)
+                print(1)
+                URLSession.shared.dataTask(with: url!) {data,_,error in
+                    guard let data = data, error == nil else {
+                        self.present(Service.createAlertController(title: "Error", message: error!.localizedDescription), animated: true, completion: nil)
+                        return
+                    }
+                    print(1)
+                    let image = UIImage(data: data)
+                    self.iconPicture.image = image
                 }
-                let image = UIImage(data: data)
-                self.iconPicture.image = image
             }
         }) { (error) in
             self.present(Service.createAlertController(title: "Error", message: error!.localizedDescription), animated: true, completion: nil)
@@ -227,6 +234,26 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             }
             let alert = Service.createAlertController(title: "Hurray", message: "A password reset email has been sent!")
             self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func logout(_ sender: Any) {
+        let auth = Auth.auth()
+        do {
+            try auth.signOut()
+            self.dismiss(animated: true)
+        } catch let signOutError {
+            self.present(Service.createAlertController(title: "Error", message: signOutError.localizedDescription), animated: true)
+        }
+    }
+    @IBAction func deleteButton(_ sender: Any) {
+        let user = Auth.auth().currentUser
+        user?.delete { error in
+          if let error = error {
+              self.present(Service.createAlertController(title: "Error", message: error.localizedDescription), animated: true)
+          } else {
+              self.dismiss(animated: true)
+          }
         }
     }
 }
