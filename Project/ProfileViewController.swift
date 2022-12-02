@@ -211,4 +211,17 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         UIApplication.shared.windows.first?.resetFontSize()
         return
     }
+    @IBAction func resetButton(_ sender: Any) {
+        let auth = Auth.auth()
+        let defaults = UserDefaults.standard
+        auth.sendPasswordReset(withEmail:defaults.string(forKey: "userEmailKey")!) { (error) in
+            if let error = error {
+                let alert = Service.createAlertController(title: "Error", message: error.localizedDescription)
+                self.present(alert, animated: true, completion: nil)
+                return
+            }
+            let alert = Service.createAlertController(title: "Hurray", message: "A password reset email has been sent!")
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
 }

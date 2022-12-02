@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0A27D8F7293700C8009E0054 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A27D8F6293700C8009E0054 /* ProfileViewController.swift */; };
-		0A27D8F929383D5D009E0054 /* AddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A27D8F829383D5D009E0054 /* AddressViewController.swift */; };
 		0A27D90529387C7A009E0054 /* audio4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0A27D90029387C75009E0054 /* audio4.mp3 */; };
 		0A27D90629387C7A009E0054 /* audio3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0A27D90129387C76009E0054 /* audio3.mp3 */; };
 		0A27D90729387C7A009E0054 /* audio1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0A27D90229387C76009E0054 /* audio1.mp3 */; };
@@ -39,7 +38,6 @@
 
 /* Begin PBXFileReference section */
 		0A27D8F6293700C8009E0054 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		0A27D8F829383D5D009E0054 /* AddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewController.swift; sourceTree = "<group>"; };
 		0A27D90029387C75009E0054 /* audio4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = audio4.mp3; sourceTree = "<group>"; };
 		0A27D90129387C76009E0054 /* audio3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = audio3.mp3; sourceTree = "<group>"; };
 		0A27D90229387C76009E0054 /* audio1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = audio1.mp3; sourceTree = "<group>"; };
@@ -121,7 +119,6 @@
 				B25EC38A29355CE300218938 /* Service.swift */,
 				B228F16129186D8B00548848 /* Main.storyboard */,
 				0AFA6C362939AF740025245A /* DetailViewController.swift */,
-				0A27D8F829383D5D009E0054 /* AddressViewController.swift */,
 				B228F16729186D8B00548848 /* Assets.xcassets */,
 				B228F16929186D8B00548848 /* LaunchScreen.storyboard */,
 				B228F16C29186D8B00548848 /* Info.plist */,
@@ -237,7 +234,6 @@
 				9CFA2C752934306C00966B0B /* ItemCollectionViewCell.swift in Sources */,
 				B21979112937ED91000BEBC8 /* FavouriteTableViewCell.swift in Sources */,
 				B219790B2937E63B000BEBC8 /* EnterPageViewController.swift in Sources */,
-				0A27D8F929383D5D009E0054 /* AddressViewController.swift in Sources */,
 				0AFA6C372939AF740025245A /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
