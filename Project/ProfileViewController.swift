@@ -84,14 +84,11 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
 
                 let urlString =  self.defaults.string(forKey: "userProfileImageKey")!
                 let url = URL(string: urlString)
-
                 let task = URLSession.shared.dataTask(with: url!) {data,_,error in
                     guard let data = data, error == nil else {
-                        print(0)
                         self.present(Service.createAlertController(title: "Error", message: error!.localizedDescription), animated: true, completion: nil)
                         return
                     }
-                    print(1)
                     DispatchQueue.main.async {
                         let image = UIImage(data: data)
                         self.iconPicture.image = image
@@ -133,29 +130,28 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let chosenImage = info[.originalImage] as! UIImage
         iconPicture.image = chosenImage
-        guard let imageData = chosenImage.pngData() else {
-            return
-        }
-        let ref = self.storage.reference().child("images/\(String(describing: defaults.string(forKey: "userNameKey")))/profileImage")
-        ref.putData(imageData) { _,error in
-            guard error == nil else {
-                print("Failed to upload")
-                return
-            }
-            ref.downloadURL(){ url,error in
-                guard let url = url, error == nil else {
-                    return
-                }
-                let urlString = url.absoluteString
-                let ref = Database.database().reference()
-                let uid = Auth.auth().currentUser?.uid
-                ref.child("users").child(uid!).child("profileImage").setValue(urlString)
-            }
-        }
+//        guard let imageData = chosenImage.pngData() else {
+//            return
+//        }
+//        let ref = self.storage.reference().child("images/\(String(describing: defaults.string(forKey: "userNameKey")))/profileImage")
+//        ref.putData(imageData) { _,error in
+//            guard error == nil else {
+//                print("Failed to upload")
+//                return
+//            }
+//            ref.downloadURL(){ url,error in
+//                guard let url = url, error == nil else {
+//                    return
+//                }
+//                let urlString = url.absoluteString
+//                let ref = Database.database().reference()
+//                let uid = Auth.auth().currentUser?.uid
+//                ref.child("users").child(uid!).child("profileImage").setValue(urlString)
+//            }
+//        }
         iconPicture.layer.borderColor = UIColor.black.cgColor
         iconPicture.layer.cornerRadius = iconPicture.frame.height/2
         iconPicture.clipsToBounds = true
-        viewWillAppear(false)
         dismiss(animated: true)
     }
     
@@ -251,6 +247,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         let auth = Auth.auth()
         do {
             try auth.signOut()
+            Favouritelist = []
             self.dismiss(animated: true)
         } catch let signOutError {
             self.present(Service.createAlertController(title: "Error", message: signOutError.localizedDescription), animated: true)
@@ -269,6 +266,24 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBAction func saveButton(_ sender: Any) {
         let ref = Database.database().reference()
         let uid = Auth.auth().currentUser?.uid
+        let chosenImage = iconPicture.image
+        guard let imageData = chosenImage!.pngData() else {
+            return
+        }
+        let reff = self.storage.reference().child("images/\(String(describing: defaults.string(forKey: "userNameKey")))/profileImage")
+        reff.putData(imageData) { _,error in
+            guard error == nil else {
+                print("Failed to upload")
+                return
+            }
+            reff.downloadURL(){ url,error in
+                guard let url = url, error == nil else {
+                    return
+                }
+                let urlString = url.absoluteString
+                ref.child("users").child(uid!).child("profileImage").setValue(urlString)
+            }
+        }
         ref.child("users").child(uid!).child("address").setValue(addressLabel.text)
         ref.child("users").child(uid!).child("budget").setValue(budgetLabel.text)
     }
