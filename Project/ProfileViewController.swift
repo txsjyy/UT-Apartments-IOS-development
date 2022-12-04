@@ -13,13 +13,14 @@ import FirebaseStorage
 extension UIView {
     func changeFontSize(){
         if let v = self as? UIButton {
-            v.titleLabel?.numberOfLines = 0
+            //v.titleLabel?.numberOfLines = 0
             let fontSize = v.titleLabel?.font.pointSize
-            v.titleLabel?.font = UIFont.systemFont(ofSize: fontSize!, weight: UIFont.Weight.bold)
+            //v.titleLabel?.font = UIFont.systemFont(ofSize: fontSize!, weight: UIFont.Weight.bold)
         } else if let v = self as? UILabel {
             v.numberOfLines = 0
             let fontSize = v.font.pointSize
             v.font = UIFont.systemFont(ofSize: fontSize, weight: UIFont.Weight.bold)
+            UILabel.appearance(whenContainedInInstancesOf: [UIViewController.self]).font = .boldSystemFont(ofSize: 17)
         } else if let v = self as? UITextField {
             let fontSize = v.font!.pointSize
             v.font = UIFont.systemFont(ofSize: fontSize, weight: UIFont.Weight.bold)
@@ -33,10 +34,11 @@ extension UIView {
     func resetFontSize(){
         if let v = self as? UIButton {
             let fontSize = v.titleLabel?.font.pointSize
-            v.titleLabel?.font = UIFont.systemFont(ofSize: fontSize!, weight: UIFont.Weight.regular)
+            //v.titleLabel?.font = UIFont.systemFont(ofSize: fontSize!, weight: UIFont.Weight.regular)
         } else if let v = self as? UILabel {
             let fontSize = v.font.pointSize
             v.font = UIFont.systemFont(ofSize: fontSize, weight: UIFont.Weight.regular)
+            UILabel.appearance(whenContainedInInstancesOf: [UIViewController.self]).font = .systemFont(ofSize: 17)
         } else if let v = self as? UITextField {
             let fontSize = v.font!.pointSize
             v.font = UIFont.systemFont(ofSize: fontSize, weight: UIFont.Weight.regular)
