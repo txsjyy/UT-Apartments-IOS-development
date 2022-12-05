@@ -71,7 +71,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         super.viewDidLoad()
         picker.delegate = self
         
-        iconPicture.layer.cornerRadius = 15
+        iconPicture.layer.cornerRadius = iconPicture.layer.frame.height/2
         iconPicture.clipsToBounds = true
         
         Service.getUserInfo ( onSuccess: {
