@@ -25,6 +25,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        statusLabel.text = "Status"
         SignButton.layer.cornerRadius = 15
         SignButton.clipsToBounds = true
         passwordField.isSecureTextEntry = true
@@ -67,8 +68,12 @@ class LoginViewController: UIViewController {
                 if let error = error as NSError? {
                     self.statusLabel.text = "\(error.localizedDescription)"
                 } else {
-                        self.statusLabel.text = "Sign In success"
-                        self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                    self.statusLabel.text = "Sign In success"
+                    self.IDField.text = ""
+                    self.passwordField.text = ""
+                    //sleep(1)
+                    self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                    self.statusLabel.text = "Status"
                 }
             }
 //      create new user and login
@@ -82,12 +87,23 @@ class LoginViewController: UIViewController {
                         if self.nameField.text == "" {
                             Service.uploadToDatabase(email: self.IDField.text!, name: "vistor") {
                                 self.statusLabel.text = "Sign In success"
+                                self.IDField.text = ""
+                                self.passwordField.text = ""
+                                self.confirmField.text = ""
+                                //sleep(1)
                                 self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                                self.statusLabel.text = "Status"
                             }
                         }else {
                             Service.uploadToDatabase(email: self.IDField.text!, name: self.nameField.text!) {
                                 self.statusLabel.text = "Sign In success"
+                                self.IDField.text = ""
+                                self.passwordField.text = ""
+                                self.confirmField.text = ""
+                                self.nameField.text = ""
+                                //sleep(1)
                                 self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                                self.statusLabel.text = "Status"
                             }
                         }
                     }
