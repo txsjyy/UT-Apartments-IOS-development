@@ -79,7 +79,7 @@ class LoginViewController: UIViewController {
                     if let error = error as NSError? {
                         self.statusLabel.text = "\(error.localizedDescription)"
                     } else {
-                        if self.nameField.text == nil {
+                        if self.nameField.text == "" {
                             Service.uploadToDatabase(email: self.IDField.text!, name: "vistor") {
                                 self.statusLabel.text = "Sign In success"
                                 self.performSegue(withIdentifier: "loginSegue", sender: nil)

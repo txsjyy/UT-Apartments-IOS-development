@@ -56,7 +56,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     var player: AVAudioPlayer?
     @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var fontButton: UISwitch!
-    @IBOutlet weak var userNameLabel: UILabel!
+
+    @IBOutlet weak var userNameLabel: UITextField!
     @IBOutlet weak var iconPicture: UIImageView!
     @IBOutlet weak var darkMode: UISwitch!
     @IBOutlet weak var addressLabel: UITextField!
@@ -73,10 +74,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         iconPicture.layer.cornerRadius = 15
         iconPicture.clipsToBounds = true
         
-        
-        
         Service.getUserInfo ( onSuccess: {
-            self.userNameLabel.text = " \(self.defaults.string(forKey: "userNameKey")!)"
+            self.userNameLabel.text = self.defaults.string(forKey: "userNameKey")!
             self.addressLabel.text = "\(self.defaults.string(forKey: "userAddressKey")!)"
             self.budgetLabel.text = "\(self.defaults.string(forKey: "userBudgetKey")!)"
             print(self.defaults.string(forKey: "userProfileImageKey")!)
@@ -130,25 +129,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let chosenImage = info[.originalImage] as! UIImage
         iconPicture.image = chosenImage
-//        guard let imageData = chosenImage.pngData() else {
-//            return
-//        }
-//        let ref = self.storage.reference().child("images/\(String(describing: defaults.string(forKey: "userNameKey")))/profileImage")
-//        ref.putData(imageData) { _,error in
-//            guard error == nil else {
-//                print("Failed to upload")
-//                return
-//            }
-//            ref.downloadURL(){ url,error in
-//                guard let url = url, error == nil else {
-//                    return
-//                }
-//                let urlString = url.absoluteString
-//                let ref = Database.database().reference()
-//                let uid = Auth.auth().currentUser?.uid
-//                ref.child("users").child(uid!).child("profileImage").setValue(urlString)
-//            }
-//        }
         iconPicture.layer.borderColor = UIColor.black.cgColor
         iconPicture.layer.cornerRadius = iconPicture.frame.height/2
         iconPicture.clipsToBounds = true
@@ -286,6 +266,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
         ref.child("users").child(uid!).child("address").setValue(addressLabel.text)
         ref.child("users").child(uid!).child("budget").setValue(budgetLabel.text)
+        ref.child("users").child(uid!).child("name").setValue(userNameLabel.text)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

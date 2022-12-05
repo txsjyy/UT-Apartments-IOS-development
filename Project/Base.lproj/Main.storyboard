@@ -610,13 +610,6 @@
                                 <rect key="frame" x="163" y="114" width="105" height="94"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LA9-VA-q8g">
-                                <rect key="frame" x="55" y="240" width="321" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Swith to Dark Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pl6-WS-Z8Y">
                                 <rect key="frame" x="55" y="427" width="233" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -728,6 +721,12 @@
                                     <action selector="resetButton:" destination="Cgu-V5-rRg" eventType="touchUpInside" id="Fw6-2O-OMZ"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FjB-z2-Hjk">
+                                <rect key="frame" x="55" y="216" width="323" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Inv-nC-VId"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -764,7 +763,7 @@
                         <outlet property="iconPicture" destination="LqL-Ni-wEG" id="cbR-Ka-cgu"/>
                         <outlet property="musicButton" destination="chE-X5-RFt" id="6OS-NK-dTf"/>
                         <outlet property="resetButton" destination="vkf-UQ-vms" id="qGC-Tn-iUi"/>
-                        <outlet property="userNameLabel" destination="LA9-VA-q8g" id="AgB-FE-ibQ"/>
+                        <outlet property="userNameLabel" destination="FjB-z2-Hjk" id="w2t-Kr-5L3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iFK-oI-wqS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
