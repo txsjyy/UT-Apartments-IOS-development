@@ -274,7 +274,7 @@
         <scene sceneID="LzP-dM-Wlr">
             <objects>
                 <navigationController id="4KY-ad-0mV" customClass="FPRTestNavigationViewController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="lD9-FT-auF"/>
+                    <tabBarItem key="tabBarItem" image="star.fill" catalog="system" id="lD9-FT-auF"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Qvp-kP-hxM">
                         <rect key="frame" x="0.0" y="59" width="430" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -384,7 +384,7 @@
             </objects>
             <point key="canvasLocation" x="4226.5116279069771" y="-702.36051502145926"/>
         </scene>
-        <!--Rate My Apartment-->
+        <!--UT Apartments-->
         <scene sceneID="tDE-qh-Bf7">
             <objects>
                 <viewController id="hkV-A5-JiO" customClass="MainViewController" customModule="Project" customModuleProvider="target" sceneMemberID="viewController">
@@ -425,7 +425,7 @@
                             <constraint firstItem="wr4-1c-hSG" firstAttribute="top" secondItem="a0z-cL-GzO" secondAttribute="top" id="mFP-9L-QN0"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Rate My Apartment" id="qcM-4e-Or8">
+                    <navigationItem key="navigationItem" title="UT Apartments" id="qcM-4e-Or8">
                         <barButtonItem key="backBarButtonItem" title="back" id="mas-2d-jCV"/>
                     </navigationItem>
                     <connections>
@@ -546,11 +546,11 @@
             </objects>
             <point key="canvasLocation" x="1795.7943925233644" y="77.753779697624196"/>
         </scene>
-        <!--Navigation Controller-->
+        <!-- -->
         <scene sceneID="7zk-2Q-BAr">
             <objects>
                 <navigationController id="aNL-FF-6Mz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="search" id="1jd-iW-Lvd"/>
+                    <tabBarItem key="tabBarItem" title=" " image="magnifyingglass" catalog="system" id="1jd-iW-Lvd"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ugZ-bn-GHt">
                         <rect key="frame" x="0.0" y="59" width="430" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -563,11 +563,11 @@
             </objects>
             <point key="canvasLocation" x="2678.9719626168221" y="110.79913606911448"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="B8O-H1-d0h">
             <objects>
                 <navigationController id="vNq-Jh-dqj" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="person.fill" catalog="system" id="Z2j-TH-08G"/>
+                    <tabBarItem key="tabBarItem" title="" image="person.fill" catalog="system" id="Z2j-TH-08G"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="UIm-sg-67s">
                         <rect key="frame" x="0.0" y="59" width="430" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -775,6 +775,7 @@
         <image name="camera.fill" catalog="system" width="128" height="93"/>
         <image name="flag" width="1920" height="1080"/>
         <image name="key.fill" catalog="system" width="82" height="128"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="music.note.list" catalog="system" width="128" height="115"/>
         <image name="person" catalog="system" width="128" height="121"/>
         <image name="person.crop.circle" catalog="system" width="128" height="123"/>
