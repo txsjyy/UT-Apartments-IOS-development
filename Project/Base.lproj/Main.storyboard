@@ -353,7 +353,10 @@
                                 <rect key="frame" x="0.0" y="103" width="430" height="746"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e6G-Jc-tmI">
-                                        <rect key="frame" x="0.0" y="0.0" width="430" height="273.33333333333331"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="430" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="g2y-hl-Mi1"/>
+                                        </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="photo.stack" catalog="system" title="Save"/>
                                         <connections>
@@ -361,7 +364,7 @@
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="age-gs-tGg">
-                                        <rect key="frame" x="0.0" y="274.33333333333326" width="430" height="471.66666666666674"/>
+                                        <rect key="frame" x="0.0" y="51" width="430" height="695"/>
                                     </imageView>
                                 </subviews>
                             </stackView>
