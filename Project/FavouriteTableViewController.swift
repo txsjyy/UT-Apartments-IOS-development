@@ -10,10 +10,12 @@
 import UIKit
 import CoreData
 
+// store apartments
 public var Favouritelist:[Apartment] = []
 
 class FavouriteTableViewController: UITableViewController {
 
+    // get data from core data
     func retrieveAPT() -> [NSManagedObject] {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "StoredApartment")
         var fetchedResults:[NSManagedObject]? = nil
@@ -28,6 +30,7 @@ class FavouriteTableViewController: UITableViewController {
         return(fetchedResults)!
     }
 
+    // initial the tab views
     override func viewDidLoad() {
         super.viewDidLoad()
         let fetchedResults = retrieveAPT()
@@ -68,6 +71,7 @@ class FavouriteTableViewController: UITableViewController {
             
         }
     }
+    
     func removeAPTData(row:Int) {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "StoredApartment")
         var fetchedResults:[NSManagedObject]

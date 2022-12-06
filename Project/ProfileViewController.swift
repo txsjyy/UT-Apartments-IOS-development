@@ -12,7 +12,10 @@ import AVFoundation
 import Firebase
 import FirebaseStorage
 
+// user profiles and settings
+
 extension UIView {
+    // allow user to change the font to bold
     func changeFontSize(){
         if let v = self as? UIButton {
             //v.titleLabel?.numberOfLines = 0
@@ -33,6 +36,7 @@ extension UIView {
         }
     }
     
+    // allow user to change the font back to regular
     func resetFontSize(){
         if let v = self as? UIButton {
             let fontSize = v.titleLabel?.font.pointSize
@@ -58,7 +62,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     var player: AVAudioPlayer?
     @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var fontButton: UISwitch!
-
     @IBOutlet weak var userNameLabel: UITextField!
     @IBOutlet weak var iconPicture: UIImageView!
     @IBOutlet weak var darkMode: UISwitch!
@@ -67,22 +70,23 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     let defaults = UserDefaults.standard
     let storage = Storage.storage()
     let picker = UIImagePickerController()
-    //let myImage = UIImage()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         picker.delegate = self
         
+        // set the avatar to a circle
         iconPicture.layer.cornerRadius = iconPicture.layer.frame.height/2
         iconPicture.clipsToBounds = true
         
+        // get user profile from firebase
         Service.getUserInfo ( onSuccess: {
             self.userNameLabel.text = self.defaults.string(forKey: "userNameKey")!
             self.addressLabel.text = "\(self.defaults.string(forKey: "userAddressKey")!)"
             self.budgetLabel.text = "\(self.defaults.string(forKey: "userBudgetKey")!)"
             print(self.defaults.string(forKey: "userProfileImageKey")!)
             if self.defaults.string(forKey: "userProfileImageKey") != "none" {
-
                 let urlString =  self.defaults.string(forKey: "userProfileImageKey")!
                 let url = URL(string: urlString)
                 let task = URLSession.shared.dataTask(with: url!) {data,_,error in
@@ -103,9 +107,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         }) { (error) in
             self.present(Service.createAlertController(title: "Error", message: error!.localizedDescription), animated: true, completion: nil)
         }
+        
+        // the dark mode and big font are off each time opening the app
         darkMode.setOn(false, animated: false)
         fontButton.setOn(false, animated: false)
-       // darkMode.isOn = UserDefaults.standard.bool(forKey: "Switch")
     }
 
     @IBAction func librarySelected(_ sender: Any) {
@@ -114,7 +119,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         present(picker, animated: true)
     }
     
-
+    // allow user to switch the dark mode on and off
     @IBAction func darkModeSwitch(_ sender: UISwitch) {
         //UserDefaults.standard.set(sender.isOn, forKey: "Switch")
         if #available(iOS 15.0, *){
@@ -128,6 +133,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
     }
     
+    // allow user to change avatar from
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let chosenImage = info[.originalImage] as! UIImage
         iconPicture.image = chosenImage
@@ -141,6 +147,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         dismiss(animated: true)
     }
     
+    // take photo from camera
     @IBAction func cameraSelected(_ sender: Any) {
         if UIImagePickerController.availableCaptureModes(for: .rear) != nil {
             // use the rear camera
@@ -203,7 +210,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             }
         }
     }
-//  font button
+    
+    //  font button
     @IBAction func fontButton(_ sender: UISwitch) {
         if sender.isOn{
             UIApplication.shared.windows.first?.changeFontSize()
@@ -225,6 +233,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
     }
     
+    // allow user to log out
     @IBAction func logout(_ sender: Any) {
         let auth = Auth.auth()
         do {
@@ -235,6 +244,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             self.present(Service.createAlertController(title: "Error", message: signOutError.localizedDescription), animated: true)
         }
     }
+    
+    // allow user to delete account
     @IBAction func deleteButton(_ sender: Any) {
         let user = Auth.auth().currentUser
         user?.delete { error in
@@ -245,6 +256,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
           }
         }
     }
+    
+    // allow user to save changes
     @IBAction func saveButton(_ sender: Any) {
         let ref = Database.database().reference()
         let uid = Auth.auth().currentUser?.uid
@@ -271,6 +284,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         ref.child("users").child(uid!).child("name").setValue(userNameLabel.text)
     }
     
+    // hide keyboard
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true

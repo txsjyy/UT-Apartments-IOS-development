@@ -11,6 +11,8 @@ import UIKit
 import Firebase
 import FirebaseStorage
 
+// store user profiles in firebase
+
 class Service {
     static func uploadToDatabase(email: String, name: String, onSuccess: @escaping () -> Void) {
             let ref = Database.database().reference()
@@ -63,6 +65,7 @@ class Service {
         
         return alert
     }
+    
 //    static func uploadImage(image: UIImage,onSuccess: @escaping () -> Void) {
 //        // Create a storage reference from our storage service
 //        let storageRef = Storage.storage().reference().child("myfiles/myfile")

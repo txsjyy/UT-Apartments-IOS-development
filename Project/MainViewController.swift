@@ -9,6 +9,7 @@
 
 import UIKit
 
+// manually set apartment list
 let signature1909 = Apartment(apt_name: "Signature 1909", apt_image: "signature1909", apt_latitude: 30.28354, apt_longitude: -97.74490, apt_price: "$1,029 - $1,719")
 let torre = Apartment(apt_name: "Torre", apt_image: "torre", apt_latitude: 30.28368, apt_longitude: -97.74429, apt_price: "$925 - $2,530")
 let rio21 = Apartment(apt_name: "21 Rio", apt_image: "21rio", apt_latitude: 30.28449, apt_longitude: -97.74461, apt_price: "$859 - $2,079")
@@ -61,11 +62,11 @@ class MainViewController: UIViewController,UICollectionViewDelegate, UICollectio
         collectionView?.addGestureRecognizer(gesture)
     }
     
+    // allow drag cells of the collection view
     @objc func handleLongPressGesture(_ gesture: UILongPressGestureRecognizer) {
         guard let collectionView = collectionView else {
             return
         }
-        
         switch gesture.state {
         case .began:
             guard let targetIndexPath = collectionView.indexPathForItem(at: gesture.location(in: collectionView)) else {
@@ -80,6 +81,8 @@ class MainViewController: UIViewController,UICollectionViewDelegate, UICollectio
             collectionView.cancelInteractiveMovement()
         }
     }
+    
+    // define the colletionview to contain apartments
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCollectionViewCell", for: indexPath) as! ItemCollectionViewCell
         cell.imageView.image = UIImage(named: apartment_list[indexPath.row].apt_image)
@@ -90,6 +93,7 @@ class MainViewController: UIViewController,UICollectionViewDelegate, UICollectio
         return apartment_list.count
     }
     
+    // connect to apartment detail when click one apartment
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "apt_segue",
            let destination = segue.destination as? APTViewController {
@@ -102,7 +106,7 @@ class MainViewController: UIViewController,UICollectionViewDelegate, UICollectio
         self.performSegue(withIdentifier: "apt_segue", sender: nil)
     }
    
-    
+    // define the cell size, three in a row
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         let itemsPerRow: CGFloat = 3

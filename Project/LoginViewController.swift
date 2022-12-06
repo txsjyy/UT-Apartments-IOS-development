@@ -11,9 +11,10 @@ import FirebaseAuth
 import Firebase
 
 // login using firebase
-// also have the forget pa
+// also have the forget password link
 class LoginViewController: UIViewController {
 
+    // define buttons
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var IDField: UITextField!
     @IBOutlet weak var SegCrtl: UISegmentedControl!
@@ -23,11 +24,11 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var forgotButton: UIButton!
-    
     @IBOutlet weak var userNameLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // initinal view
         statusLabel.text = "Status"
         SignButton.layer.cornerRadius = 15
         SignButton.clipsToBounds = true
@@ -38,6 +39,7 @@ class LoginViewController: UIViewController {
         nameField.isHidden = true
     }
 
+    // switch between sign in/sign up
     @IBAction func SegSwitch(_ sender: Any) {
         switch SegCrtl.selectedSegmentIndex{
         case 0 :
@@ -63,7 +65,8 @@ class LoginViewController: UIViewController {
             confirmLabel.isHidden = true
         }
     }
-//  check login and perform segue
+    
+    //  check login and perform segue
     @IBAction func SignInUpButton(_ sender: Any) {
         if SignButton.titleLabel!.text == "Sign In" {
             Auth.auth().signIn(withEmail: IDField.text!, password: passwordField.text!) {
@@ -79,7 +82,8 @@ class LoginViewController: UIViewController {
                     self.statusLabel.text = "Status"
                 }
             }
-//      create new user and login
+            
+        // create new user and login
         } else {
             if passwordField.text == confirmField.text{
                 Auth.auth().createUser(withEmail: IDField.text!, password: passwordField.text!) {
@@ -116,6 +120,8 @@ class LoginViewController: UIViewController {
             }
         }
     }
+    
+    // send reset password email to user inbox
     @IBAction func forgotPassButton_Tapped(_ sender: Any) {
         let auth = Auth.auth()
         auth.sendPasswordReset(withEmail: IDField.text!) { (error) in
@@ -129,6 +135,7 @@ class LoginViewController: UIViewController {
         }
     }
     
+    // hide keyboards
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
