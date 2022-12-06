@@ -262,6 +262,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
           if let error = error {
               self.present(Service.createAlertController(title: "Error", message: error.localizedDescription), animated: true)
           } else {
+              Favouritelist = []
               self.dismiss(animated: true)
           }
         }
