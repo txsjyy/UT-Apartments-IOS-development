@@ -110,7 +110,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         // the dark mode and big font are off each time opening the app
         darkMode.setOn(false, animated: false)
+        let appDelegate = UIApplication.shared.windows.first
+        appDelegate?.overrideUserInterfaceStyle = .light
         fontButton.setOn(false, animated: false)
+        UIApplication.shared.windows.first?.resetFontSize()
     }
 
     @IBAction func librarySelected(_ sender: Any) {
@@ -235,6 +238,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     // allow user to log out
     @IBAction func logout(_ sender: Any) {
+        let appDelegate = UIApplication.shared.windows.first
+        appDelegate?.overrideUserInterfaceStyle = .light
+        UIApplication.shared.windows.first?.resetFontSize()
         let auth = Auth.auth()
         do {
             try auth.signOut()
@@ -247,6 +253,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     // allow user to delete account
     @IBAction func deleteButton(_ sender: Any) {
+        let appDelegate = UIApplication.shared.windows.first
+        appDelegate?.overrideUserInterfaceStyle = .light
+        UIApplication.shared.windows.first?.resetFontSize()
         let user = Auth.auth().currentUser
         user?.delete { error in
           if let error = error {
