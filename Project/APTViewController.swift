@@ -1,6 +1,8 @@
 //
 //  APTViewController.swift
-//  Project
+//  Project Name: UT Apartment
+//  Team 8: Junyu Yao, Mingda Li, Ruiqi Liu
+//  Course: CS329E
 //
 //  Created by Ricky on 11/28/22.
 //

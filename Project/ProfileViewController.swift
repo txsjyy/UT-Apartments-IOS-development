@@ -1,6 +1,8 @@
 //
 //  ProfileViewController.swift
-//  Project
+//  Project Name: UT Apartment
+//  Team 8: Junyu Yao, Mingda Li, Ruiqi Liu
+//  Course: CS329E
 //
 //  Created by 李明达 on 11/29/22.
 //

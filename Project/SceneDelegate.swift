@@ -1,7 +1,8 @@
 //
 //  SceneDelegate.swift
-//  Project
-//
+//  Project Name: UT Apartment
+//  Team 8: Junyu Yao, Mingda Li, Ruiqi Liu
+//  Course: CS329E
 //  Created by Junyu Yao on 11/6/22.
 //
 

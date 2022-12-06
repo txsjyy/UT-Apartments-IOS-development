@@ -1,7 +1,8 @@
 //
 //  LoginViewController.swift
-//  Project: YaoJunyu-HW5
-//  Eid : jy23984
+//  Project Name: UT Apartment
+//  Team 8: Junyu Yao, Mingda Li, Ruiqi Liu
+//  Course: CS329E
 //  Created by Junyu Yao on 10/17/22.
 //
 
@@ -9,6 +10,8 @@ import UIKit
 import FirebaseAuth
 import Firebase
 
+// login using firebase
+// also have the forget pa
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var passwordField: UITextField!
