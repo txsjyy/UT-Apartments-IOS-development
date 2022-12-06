@@ -4,7 +4,7 @@
 
 Yay, no errors, warnings, or alerts!
 
-Conversion time: 0.635 seconds.
+Conversion time: 0.684 seconds.
 
 
 Using this Markdown file:
@@ -17,7 +17,7 @@ Using this Markdown file:
 Conversion notes:
 
 * Docs to Markdown version 1.0β33
-* Mon Dec 05 2022 20:15:18 GMT-0800 (PST)
+* Mon Dec 05 2022 20:22:36 GMT-0800 (PST)
 * Source doc: CS329E_GROUP8_README
 * Tables are currently converted to HTML tables.
 ----->
@@ -42,10 +42,11 @@ Conversion notes:
 * For login game: Swipe left or right to adjust UT Tower, and swipe up to unlock when it is upward
 * For collectionView page: can click (two fingers using touchpad) and hold and drag cells
 * For reset password emails: Emails can usually be found under spam/trash folder
+* For favoriteList page: swipe to delete rows
 * For user profiles: After edit avatar, username, address, budget, need to click on save button to save any changes. The defaults of dark mode and big font are both off every time a user enters the app.
 * For music sound: Click the button to play a random piano piece, and then click again to mute, click again to play, click again to mute.
 * For apartment detail page: Click the picture of the apartment to jump to a new page that allows you to save pictures to the local album.
-* For music: Please don't quit the app while using the simulator to play music, it seems to cause the simulator’s speaker to appear in a strange state, but if use a real iPhone 14 Pro Max, it works completely normal.
+* For music: Please don't quit the app while using the simulator to play music, it seems to cause the simulator’s speaker to appear in a strange state, but if you use a real iPhone 14 Pro Max, it works completely normal.
 
 **Required feature checklist (We list what we finished)**
 
