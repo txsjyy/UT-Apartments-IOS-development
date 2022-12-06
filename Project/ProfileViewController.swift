@@ -108,6 +108,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             self.present(Service.createAlertController(title: "Error", message: error!.localizedDescription), animated: true, completion: nil)
         }
         
+        
         // the dark mode and big font are off each time opening the app
         darkMode.setOn(false, animated: false)
         let appDelegate = UIApplication.shared.windows.first
